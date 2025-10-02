@@ -1,0 +1,398 @@
+/* Variables de tema - Por defecto Cyberpunk */
+:root {
+  --bg-primary: #000033;
+  --bg-secondary: #0000aa;
+  --bg-tertiary: #0033cc;
+  --text-primary: #ffcc00;
+  --text-secondary: #00ffff;
+  --text-tertiary: #ff00ff;
+  --border-color: #00ff00;
+  --accent-color: #ff00ff;
+  --accent-hover: #ff66ff;
+  --header-bg: #000088;
+  --header-text: #ffcc00;
+  --card-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  --input-bg: #000055;
+  --footer-bg: #000088;
+  --footer-text: #ffcc00;
+  --link-color: #ff00ff;
+  --heading-color: #00ffff;
+  --pixel-font: 'Courier New', monospace;
+  --retro-font: 'Courier New', monospace;
+}
+
+/* Tema Cyberpunk */
+html.cyberpunk-theme,
+body.cyberpunk-theme {
+  --bg-primary: #000033;
+  --bg-secondary: #0000aa;
+  --bg-tertiary: #0033cc;
+  --text-primary: #ffcc00;
+  --text-secondary: #00ffff;
+  --text-tertiary: #ff00ff;
+  --border-color: #00ff00;
+  --accent-color: #ff00ff;
+  --accent-hover: #ff66ff;
+  --header-bg: #000088;
+  --header-text: #ffcc00;
+  --card-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  --input-bg: #000055;
+  --footer-bg: #000088;
+  --footer-text: #ffcc00;
+  --link-color: #ff00ff;
+  --heading-color: #00ffff;
+  --pixel-font: 'Courier New', monospace;
+  --retro-font: 'Courier New', monospace;
+
+  /* Aplicar directamente los estilos más importantes */
+  background-color: #000033;
+  color: #ffcc00;
+}
+
+/* Tema Retro */
+html.retro-theme,
+body.retro-theme {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2d2d2d;
+  --text-primary: #f5f5f7;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #808080;
+  --border-color: #444444;
+  --accent-color: #ff6b8b;
+  --accent-hover: #ff8fa3;
+  --header-bg: #0f0f1a;
+  --header-text: #ffffff;
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --input-bg: #2d2d2d;
+  --footer-bg: #0f0f1a;
+  --footer-text: #f5f5f5;
+  --link-color: #ff6b8b;
+  --heading-color: #ffffff;
+  --pixel-font: 'Courier New', monospace;
+  --retro-font: 'Courier New', monospace;
+
+  /* Aplicar directamente los estilos más importantes */
+  background-color: #121212;
+  color: #f5f5f7;
+}
+
+/* Tema oscuro */
+html.dark-theme,
+body.dark-theme {
+  --bg-primary: #220033;
+  --bg-secondary: #440066;
+  --bg-tertiary: #660099;
+  --text-primary: #00ff99;
+  --text-secondary: #ff00ff;
+  --text-tertiary: #00ffaa;
+  --border-color: #ff00ff;
+  --accent-color: #ff00ff;
+  --accent-hover: #ff66ff;
+  --header-bg: #330066;
+  --header-text: #00ffaa;
+  --card-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+  --input-bg: #220044;
+  --footer-bg: #330066;
+  --footer-text: #00ffaa;
+  --link-color: #ff00ff;
+  --heading-color: #00ffaa;
+  --pixel-font: 'Courier New', monospace;
+  --retro-font: 'Courier New', monospace;
+
+  /* Aplicar directamente los estilos más importantes */
+  background-color: #220033;
+  color: #00ff99;
+}
+
+
+
+/* Estilos generales */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Utilidades */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Estilos para componentes específicos */
+.game-card {
+  background-color: var(--bg-secondary);
+  box-shadow: var(--card-shadow);
+}
+
+.game-title a,
+.section-header h2,
+.game-details h2,
+.register-header h2,
+.login-header h2 {
+  color: var(--heading-color);
+}
+
+.game-category,
+.game-description p,
+.meta-label,
+.detail-label {
+  color: var(--text-secondary);
+}
+
+.game-purchase,
+.newsletter-form input {
+  background-color: var(--bg-tertiary);
+}
+
+/* Estilos específicos para textos */
+p {
+  color: var(--text-secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+}
+
+a:not(.btn) {
+  color: var(--link-color);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Estilos para manejo de imágenes en admin panel */
+.image-container {
+  position: relative;
+}
+
+.screenshot-preview {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  background: var(--bg-tertiary);
+  border: 2px dashed var(--border-color);
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+  z-index: 1;
+}
+
+.image-placeholder.error {
+  border-color: #ff3333;
+  background: rgba(255, 51, 51, 0.9);
+}
+
+.loading-spinner {
+  color: var(--text-secondary);
+  font-size: 14px;
+  animation: pulse 1.5s infinite;
+}
+
+.error-message {
+  color: #ff6666;
+  font-size: 12px;
+  text-align: center;
+}
+
+.btn-retry {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-retry:hover {
+  background: var(--accent-hover);
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Estilos SIMPLIFICADOS para capturas de pantalla */
+.screenshots-section {
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+}
+
+.add-screenshot-simple {
+  background: var(--bg-tertiary);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.simple-add-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.screenshot-input-simple {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border-radius: 4px;
+  font-family: var(--retro-font);
+}
+
+.btn-add-simple {
+  padding: 12px 20px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: var(--retro-font);
+}
+
+.btn-add-simple:hover {
+  background: #218838;
+}
+
+.quick-examples {
+  text-align: center;
+}
+
+.btn-example {
+  margin: 5px;
+  padding: 8px 15px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--retro-font);
+}
+
+.btn-example:hover {
+  background: var(--accent-hover);
+}
+
+.screenshots-list-simple {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.screenshot-card {
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.screenshot-preview {
+  position: relative;
+}
+
+.img-simple {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.screenshot-info {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.screenshot-number {
+  color: var(--text-secondary);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.btn-delete-simple {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.btn-delete-simple:hover {
+  background: #c82333;
+}
+
+.screenshot-url-display {
+  padding: 5px 10px;
+  background: var(--input-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+.screenshot-url-display small {
+  color: var(--text-tertiary);
+  font-size: 10px;
+  word-break: break-all;
+}
