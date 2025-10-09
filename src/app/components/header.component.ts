@@ -104,8 +104,9 @@ import { Cart } from "../models/cart.model";
                 <span class="user-greeting">Hola, {{ currentUser.username || currentUser.username }}</span>
                 <div class="dropdown" [class.open]="isUserMenuOpen">
                   <a routerLink="/profile" (click)="closeAllMenus()">Mi Perfil</a>
+                  <a routerLink="/settings" (click)="closeAllMenus()">⚙️Configuración</a>
                   <a routerLink="/purchase-history" (click)="closeAllMenus()">📋 Mis Compras</a>
-                  <a routerLink="/admin" (click)="closeAllMenus()" *ngIf="isAdmin()" class="admin-link">⚙️ Administración</a>
+                  <a routerLink="/admin" (click)="closeAllMenus()" *ngIf="isAdmin()" class="admin-link">Administración</a>
                   <a (click)="logout()" class="logout">Cerrar Sesión</a>
                 </div>
               </div>

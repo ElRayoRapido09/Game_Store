@@ -109,17 +109,17 @@ import { AuthService } from '../services/auth.service';
           
           <div class="summary-row">
             <span>Subtotal</span>
-            <span>{{ (cart?.totalPrice || 0) | currency:'USD' }}</span>
+            <span>{{ (cart.totalPrice || 0) | currency:'USD' }}</span>
           </div>
           
           <div class="summary-row">
             <span>Impuestos (16%)</span>
-            <span>{{ ((cart?.totalPrice || 0) * 0.16) | currency:'USD' }}</span>
+            <span>{{ ((cart.totalPrice || 0) * 0.16) | currency:'USD' }}</span>
           </div>
           
           <div class="summary-row total">
             <span>Total</span>
-            <span>{{ ((cart?.totalPrice || 0) * 1.16) | currency:'USD' }}</span>
+            <span>{{ ((cart.totalPrice || 0) * 1.16) | currency:'USD' }}</span>
           </div>
           
           <div class="promo-code">
