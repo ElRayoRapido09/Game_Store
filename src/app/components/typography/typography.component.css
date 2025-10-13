@@ -1,0 +1,54 @@
+.form-control {
+  @apply mb-4;
+}
+
+.label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+.select {
+  @apply mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md;
+}
+
+.range {
+  @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
+}
+
+.preview-text {
+  @apply text-gray-800 leading-relaxed;
+}
+
+/* Estilos para la vista previa */
+.preview-text p {
+  @apply mb-4 last:mb-0;
+}
+
+/* Estilo para los marcadores del rango */
+.range-marks {
+  @apply flex justify-between text-xs text-gray-600 px-2 mt-1;
+}
+
+/* Contenedor principal */
+.typography-container {
+  @apply max-w-4xl mx-auto p-6;
+}
+
+/* Sección de controles */
+.controls-section {
+  @apply bg-white shadow rounded-lg p-6 mb-6;
+}
+
+/* Título principal */
+.main-title {
+  @apply text-2xl font-bold text-gray-900 mb-6 text-center;
+}
+
+/* Subtítulos */
+.section-title {
+  @apply text-lg font-medium text-gray-700 mb-4;
+}
+
+/* Contenedor de vista previa */
+.preview-container {
+  @apply mt-6 p-6 bg-gray-50 border border-gray-200 rounded-lg;
+}

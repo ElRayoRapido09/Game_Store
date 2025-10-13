@@ -2,8 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos globales para tipografía */
+:root {
+  --font-family: Arial, sans-serif;
+  --base-font-size: 16px;
+  --font-weight: normal;
+}
+
+/* Aplicar estilos base a todo el documento */
+html, body {
+  font-family: var(--font-family) !important;
+  font-size: var(--base-font-size) !important;
+  font-weight: var(--font-weight) !important;
+}
+
+/* Asegurar que los elementos heredan la fuente */
+*, *::before, *::after {
+  font-family: inherit;
+}
+
+body {
+  font-family: var(--font-family, Arial);
+  font-size: var(--base-font-size, 16px);
+  font-weight: var(--font-weight, normal);
+}
+
 @layer base {
   :root {
+    --font-family: Arial;
+    --base-font-size: 16px;
+    --font-weight: normal;
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;

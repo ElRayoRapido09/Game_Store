@@ -13,6 +13,7 @@ import { VerifyCodeComponent } from "./components/verify-code.component"
 import { AdminPanelComponent } from "./components/admin-panel.component"
 import { UiDemoComponent } from "./components/ui-demo.component"
 import { SettingsComponent } from "./components/settings.component"
+import { TypographyComponent } from "./components/typography/typography.component"
 
 export const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -31,5 +32,6 @@ export const routes: Routes = [
   { path: "admin", component: AdminPanelComponent },
   { path: "ui-demo", component: UiDemoComponent }, // Nueva ruta para el demo
   // { path: "**", redirectTo: "/home" }, // Ruta para manejar rutas no encontradas
-  { path: "settings", component: SettingsComponent }
+  { path: "settings", component: SettingsComponent },
+  { path: "typography", component: TypographyComponent }
 ]
