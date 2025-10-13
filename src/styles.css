@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: var(--font-family, Arial);
+  font-size: var(--base-font-size, 16px);
+  font-weight: var(--font-weight, normal);
+}
+
 @layer base {
   :root {
+    --font-family: Arial;
+    --base-font-size: 16px;
+    --font-weight: normal;
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;

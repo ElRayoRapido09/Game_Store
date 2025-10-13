@@ -1,0 +1,64 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-6 text-center text-gray-800">
+      Configuración de Tipografía
+    </h2>
+
+    <div class="space-y-6">
+      <!-- Selector de Fuente -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Tipo de Letra</span>
+        </label>
+        <select 
+          class="select select-bordered w-full"
+          [(ngModel)]="selectedFont" 
+          (change)="onFontChange()">
+          <option *ngFor="let font of availableFonts" 
+                  [value]="font.value">
+            {{font.label}}
+          </option>
+        </select>
+      </div>
+
+      <!-- Selector de Peso de Fuente -->
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text">Peso de Letra</span>
+        </label>
+        <select 
+          class="select select-bordered w-full"
+          [(ngModel)]="fontWeight" 
+          (change)="onFontWeightChange()">
+          <option *ngFor="let weight of fontWeights" 
+                  [value]="weight.value">
+            {{weight.label}}
+          </option>
+        </select>
+      </div>
+
+      <!-- Vista Previa -->
+      <div class="mt-8 p-6 border rounded-lg bg-gray-50">
+        <h3 class="text-lg font-medium mb-4 text-gray-700">
+          Vista Previa
+        </h3>
+        <div class="preview-text space-y-4"
+             [style.font-family]="selectedFont"
+             [style.font-size.px]="fontSize"
+             [style.font-weight]="fontWeight">
+          <p>
+            Este es un texto de ejemplo para ver cómo se verá la tipografía seleccionada.
+          </p>
+          <p>
+            ABCDEFGHIJKLMNÑOPQRSTUVWXYZ
+            abcdefghijklmnñopqrstuvwxyz
+            1234567890
+          </p>
+          <p>
+            ¡La rápida zorra marrón salta sobre el perro perezoso!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
