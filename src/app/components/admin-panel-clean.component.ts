@@ -139,7 +139,7 @@ import { Router } from "@angular/router";
             <div class="form-group">
               <label for="image">URL de la imagen principal</label>
               <input 
-                type="url" 
+                type="text" 
                 id="image"
                 formControlName="image"
                 placeholder="https://ejemplo.com/imagen.jpg"
@@ -739,8 +739,8 @@ export class AdminPanelComponent implements OnInit {
       price: ['', [Validators.required, Validators.min(0)]],
       stock: ['', [Validators.required, Validators.min(0)]],
       category: ['', Validators.required],
-      description: ['', Validators.required],
-      image: ['', Validators.required]
+      description: [''],
+      image: ['']
     });
   }
 
