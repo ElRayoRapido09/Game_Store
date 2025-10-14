@@ -11,6 +11,9 @@ import { ForgotPasswordComponent } from "./components/forgot-password.component"
 import { ResetPasswordComponent } from "./components/reset-password.component"
 import { VerifyCodeComponent } from "./components/verify-code.component"
 import { AdminPanelComponent } from "./components/admin-panel.component"
+import { UiDemoComponent } from "./components/ui-demo.component"
+import { SettingsComponent } from "./components/settings.component"
+import { TypographyComponent } from "./components/typography/typography.component"
 
 export const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -27,5 +30,8 @@ export const routes: Routes = [
   { path: "reset-password/:token", component: ResetPasswordComponent },
   { path: "reset-password", component: ResetPasswordComponent }, // Ruta alternativa para pasar token por query params
   { path: "admin", component: AdminPanelComponent },
-  { path: "**", redirectTo: "/home" }, // Ruta para manejar rutas no encontradas
+  { path: "ui-demo", component: UiDemoComponent }, // Nueva ruta para el demo
+  // { path: "**", redirectTo: "/home" }, // Ruta para manejar rutas no encontradas
+  { path: "settings", component: SettingsComponent },
+  { path: "typography", component: TypographyComponent }
 ]
