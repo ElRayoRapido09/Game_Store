@@ -1,7 +1,7 @@
 import { Injectable, Renderer2, RendererFactory2 } from "@angular/core"
 import { BehaviorSubject } from "rxjs"
 
-export type Theme = "cyberpunk" | "retro" | "dark"
+export type Theme = "cyberpunk" | "retro" | "dark" | "grayscale"
 
 @Injectable({
   providedIn: "root",
@@ -64,12 +64,14 @@ export class ThemeService {
       console.log(`ThemeService: Aplicando clase de tema a HTML y BODY: ${theme}`)
 
       // Remover todas las clases de tema existentes
-      html.classList.remove("light-theme", "dark-theme", "cyberpunk-theme", "retro-theme")
-      body.classList.remove("light-theme", "dark-theme", "cyberpunk-theme", "retro-theme")
+      html.classList.remove("light-theme", "dark-theme", "cyberpunk-theme", "retro-theme", "grayscale-theme")
+      body.classList.remove("light-theme", "dark-theme", "cyberpunk-theme", "retro-theme", "grayscale-theme")
 
-      // Limpiar estilos inline previos
+      // Limpiar estilos inline previos y filtros
       html.removeAttribute('style')
       body.removeAttribute('style')
+      html.style.filter = ''
+      body.style.filter = ''
 
       // Aplicar el tema seleccionado
       const themeClass = `${theme}-theme`
@@ -89,6 +91,12 @@ export class ThemeService {
         body.style.setProperty('background-color', '#121212', 'important')
         body.style.setProperty('color', '#f5f5f7', 'important')
         console.log("ThemeService: Tema retro aplicado")
+      } else if (theme === "grayscale") {
+        body.style.setProperty('background-color', '#2a2a2a', 'important')
+        body.style.setProperty('color', '#e0e0e0', 'important')
+        // Aplicar filtro de escala de grises a toda la interfaz
+        html.style.setProperty('filter', 'grayscale(100%)', 'important')
+        console.log("ThemeService: Tema grayscale aplicado con filtro global")
       }
 
       // Forzar re-renderizado
@@ -117,7 +125,7 @@ export class ThemeService {
     console.log(`ThemeService: Alternando tema. Tema actual: ${currentTheme}`)
     let newTheme: Theme;
     
-    // Ciclar entre los tres temas
+    // Ciclar entre los cuatro temas
     switch (currentTheme) {
       case "cyberpunk":
         newTheme = "retro"
@@ -126,6 +134,9 @@ export class ThemeService {
         newTheme = "dark"
         break
       case "dark":
+        newTheme = "grayscale"
+        break
+      case "grayscale":
         newTheme = "cyberpunk"
         break
       default:
@@ -175,6 +186,17 @@ export class ThemeService {
         inputBg: "#2d2d2d",
         inputText: "#f5f5f7",
         inputBorder: "#444444"
+      }
+    } else if (theme === "grayscale") {
+      themeColors = {
+        headerBg: "#1a1a1a",
+        headerText: "#f0f0f0",
+        cardBg: "#333333",
+        cardText: "#e0e0e0",
+        cardBorder: "#666666",
+        inputBg: "#404040",
+        inputText: "#f0f0f0",
+        inputBorder: "#777777"
       }
     }
 
@@ -247,6 +269,13 @@ export class ThemeService {
         secondary: "#b0b0b0",
         link: "#ff6b8b",
         heading: "#ffffff"
+      }
+    } else if (theme === "grayscale") {
+      textColors = {
+        primary: "#e0e0e0",
+        secondary: "#b0b0b0",
+        link: "#cccccc",
+        heading: "#f0f0f0"
       }
     }
 
