@@ -156,14 +156,14 @@ export class ThemeService {
     
     if (theme === "dark") {
       themeColors = {
-        headerBg: "#330066",
-        headerText: "#00ffaa",
-        cardBg: "#440066",
-        cardText: "#00ff99",
-        cardBorder: "#ff00ff",
-        inputBg: "#220044",
-        inputText: "#00ff99",
-        inputBorder: "#00ffaa"
+        headerBg: "#0f0f1a",
+        headerText: "#ffffff",
+        cardBg: "#1e1e1e",
+        cardText: "#f5f5f7",
+        cardBorder: "#444444",
+        inputBg: "#2d2d2d",
+        inputText: "#f5f5f7",
+        inputBorder: "#444444"
       }
     } else if (theme === "cyberpunk") {
       themeColors = {
@@ -178,14 +178,14 @@ export class ThemeService {
       }
     } else if (theme === "retro") {
       themeColors = {
-        headerBg: "#0f0f1a",
-        headerText: "#ffffff",
-        cardBg: "#1e1e1e",
-        cardText: "#f5f5f7",
-        cardBorder: "#444444",
-        inputBg: "#2d2d2d",
-        inputText: "#f5f5f7",
-        inputBorder: "#444444"
+       headerBg: "#330066",
+        headerText: "#00ffaa",
+        cardBg: "#440066",
+        cardText: "#00ff99",
+        cardBorder: "#ff00ff",
+        inputBg: "#220044",
+        inputText: "#00ff99",
+        inputBorder: "#00ffaa"
       }
     } else if (theme === "grayscale") {
       themeColors = {
