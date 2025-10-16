@@ -1,0 +1,9 @@
+:root {
+  --cursor-size: 16px;
+}
+
+/* Aplica el cursor personalizado a toda la página */
+body {
+  cursor: url('/public/cursor.svg') 0 0, auto;
+  cursor: none; /* Oculta el cursor original */
+}

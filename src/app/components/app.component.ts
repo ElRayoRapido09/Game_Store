@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from "@angular/core";
+import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { ThemeService } from "../services/theme.service";
@@ -59,7 +59,7 @@ import { FooterComponent } from "./footer.component";
     `,
   ],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = "GameStore";
   currentTheme: 'cyberpunk' | 'retro' | 'dark' = 'cyberpunk';
 
@@ -96,6 +96,41 @@ export class AppComponent implements OnInit {
       this.themeService.logCurrentState();
     }, 500);
 
+    // Inicializar cursor personalizado global
+    if (!document.getElementById('custom-cursor')) {
+      const cursorDiv = document.createElement('div');
+      cursorDiv.id = 'custom-cursor';
+      cursorDiv.innerHTML = '<img id="custom-cursor-img" src="/assets/cursor.svg" alt="cursor" />';
+      document.body.appendChild(cursorDiv);
+    }
+
+    // Listener global de movimiento
+    document.body.addEventListener('mousemove', this.moveCustomCursor);
+
+    // Ocultar/mostrar cursor al salir/entrar de la ventana
+    document.addEventListener('mouseleave', () => {
+      const cursor = document.getElementById('custom-cursor');
+      if (cursor) cursor.style.display = 'none';
+    });
+
+    document.addEventListener('mouseenter', () => {
+      const cursor = document.getElementById('custom-cursor');
+      if (cursor) cursor.style.display = 'block';
+    });
+
     console.log("AppComponent: ngOnInit completado");
   }
+
+  ngOnDestroy(): void {
+    // Limpiar listeners globales
+    document.body.removeEventListener('mousemove', this.moveCustomCursor);
+  }
+
+  private moveCustomCursor = (e: MouseEvent): void => {
+    const cursor = document.getElementById('custom-cursor');
+    if (cursor) {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    }
+  };
 }

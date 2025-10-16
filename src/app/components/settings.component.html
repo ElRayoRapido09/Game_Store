@@ -1,4 +1,28 @@
 <<<<<<< HEAD
+<div class="settings-container p-6 max-w-md mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-lg">
+  <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+    Configuración del Cursor
+  </h2>
+
+  <label
+    for="cursorSize"
+    class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300"
+  >
+    Tamaño del cursor: <span class="font-bold">{{ cursorSize }}px</span>
+  </label>
+
+  <input
+    id="cursorSize"
+    type="range"
+    min="10"
+    max="80"
+    [value]="cursorSize"
+    (input)="changeCursorSize($event)"
+    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray-600"
+  />
+</div>
+=======
+<<<<<<< HEAD
 <p>settings works!</p>
 <button type="submit" routerLink="/typography">Cambio de tipografía</button>
 =======
@@ -16,3 +40,4 @@
   </div>
 </div>
 >>>>>>> be889b305fa4144a324e5cae9d364be8f8252a8d
+>>>>>>> 5b998959f71d152cb81bc50ccc5580b75a4a6880
