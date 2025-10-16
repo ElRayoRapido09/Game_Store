@@ -2,8 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos globales para tipografía */
+:root {
+  --font-family: Arial, sans-serif;
+  --base-font-size: 16px;
+  --font-weight: normal;
+}
+
+/* Aplicar estilos base a todo el documento */
+html, body {
+  font-family: var(--font-family) !important;
+  font-size: var(--base-font-size) !important;
+  font-weight: var(--font-weight) !important;
+}
+
+/* Asegurar que los elementos heredan la fuente */
+*, *::before, *::after {
+  font-family: inherit;
+}
+
+body {
+  font-family: var(--font-family, Arial);
+  font-size: var(--base-font-size, 16px);
+  font-weight: var(--font-weight, normal);
+}
+
 @layer base {
   :root {
+    --font-family: Arial;
+    --base-font-size: 16px;
+    --font-weight: normal;
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
@@ -84,6 +112,9 @@
   --heading-color: #00ffff;
   --pixel-font: 'Courier New', monospace;
   --retro-font: 'Courier New', monospace;
+  
+  /* Variable para tamaño de texto configurable */
+  --base-font-size: 16px;
 }
 
 /* Tema Cyberpunk */
@@ -459,7 +490,142 @@ a:not(.btn) {
 .screenshot-url-display small {
   color: var(--text-tertiary);
   font-size: 10px;
-  word-break: break-all;
+}
+
+/* Estilos globales para tamaño de texto configurable */
+body {
+  font-size: var(--base-font-size, 16px);
+  line-height: 1.6;
+}
+
+/* Aplicar tamaño de texto configurable a TODOS los elementos de texto */
+*, *::before, *::after {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+/* Aplicar tamaño específico a elementos que deben heredar */
+p, span, div, label, input, textarea, select, button, 
+a, li, td, th, code, pre, blockquote, 
+.text-content, .game-title, .game-description, 
+.nav-link, .btn, .card-text, .menu-item {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+/* Mantener proporciones para títulos */
+h1, .h1 {
+  font-size: calc(var(--base-font-size, 16px) * 2.5) !important;
+}
+
+h2, .h2 {
+  font-size: calc(var(--base-font-size, 16px) * 2) !important;
+}
+
+h3, .h3 {
+  font-size: calc(var(--base-font-size, 16px) * 1.75) !important;
+}
+
+h4, .h4 {
+  font-size: calc(var(--base-font-size, 16px) * 1.5) !important;
+}
+
+h5, .h5 {
+  font-size: calc(var(--base-font-size, 16px) * 1.25) !important;
+}
+
+h6, .h6 {
+  font-size: calc(var(--base-font-size, 16px) * 1.1) !important;
+}
+
+/* Tamaños de texto específicos con !important para asegurar aplicación */
+small, .small {
+  font-size: calc(var(--base-font-size, 16px) * 0.875) !important;
+}
+
+.text-xs {
+  font-size: calc(var(--base-font-size, 16px) * 0.75) !important;
+}
+
+.text-sm {
+  font-size: calc(var(--base-font-size, 16px) * 0.875) !important;
+}
+
+.text-base {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+.text-lg {
+  font-size: calc(var(--base-font-size, 16px) * 1.125) !important;
+}
+
+.text-xl {
+  font-size: calc(var(--base-font-size, 16px) * 1.25) !important;
+}
+
+.text-2xl {
+  font-size: calc(var(--base-font-size, 16px) * 1.5) !important;
+}
+
+.text-3xl {
+  font-size: calc(var(--base-font-size, 16px) * 1.875) !important;
+}
+
+/* Clases específicas para elementos de juegos y componentes */
+.game-card, .game-card * {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+.game-title {
+  font-size: calc(var(--base-font-size, 16px) * 1.25) !important;
+}
+
+.game-price {
+  font-size: calc(var(--base-font-size, 16px) * 1.1) !important;
+}
+
+.nav-item, .nav-link {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+.btn, button {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+.form-control, input, textarea, select {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+/* Override para elementos con clases de Tailwind */
+.prose, .prose * {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+/* Estilos específicos para componentes de la aplicación */
+.header-link, .footer-text, .menu-text {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+/* Para Angular Material y otros frameworks */
+.mat-button, .mat-raised-button, .mat-flat-button,
+.mat-form-field, .mat-input-element,
+.mat-option, .mat-select-value {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+/* Para elementos de Bootstrap si se usan */
+.card-title, .card-text, .list-group-item,
+.dropdown-item, .nav-link, .navbar-text {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+/* Estilos para forzar la aplicación en elementos específicos del tema */
+[class*="text-"], [class*="font-"] {
+  font-size: var(--base-font-size, 16px) !important;
+}
+
+/* Override específico para el tema cyberpunk */
+.cyberpunk-theme *, 
+body.cyberpunk-theme * {
+  font-size: var(--base-font-size, 16px) !important;
 }
 
 /* Custom cursor styles */

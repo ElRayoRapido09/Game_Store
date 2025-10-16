@@ -43,7 +43,7 @@ import { FooterComponent } from "./footer.component";
     }
     
     .app-container.dark-theme {
-      background-color: #220033;
+     background-color: #220033;
       color: #00ff99;
     }
     
