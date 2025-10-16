@@ -80,15 +80,15 @@ export class ThemeService {
 
       // Aplicar colores de fondo directamente para asegurar consistencia
       if (theme === "dark") {
-        body.style.setProperty('background-color', '#220033', 'important')
+       body.style.setProperty('background-color', '#220033', 'important')
         body.style.setProperty('color', '#00ff99', 'important')
         console.log("ThemeService: Tema dark aplicado")
       } else if (theme === "cyberpunk") {
-        body.style.setProperty('background-color', '#000033', 'important')
+         body.style.setProperty('background-color', '#000033', 'important')
         body.style.setProperty('color', '#ffcc00', 'important')
         console.log("ThemeService: Tema cyberpunk aplicado")
       } else if (theme === "retro") {
-        body.style.setProperty('background-color', '#121212', 'important')
+       body.style.setProperty('background-color', '#121212', 'important')
         body.style.setProperty('color', '#f5f5f7', 'important')
         console.log("ThemeService: Tema retro aplicado")
       } else if (theme === "grayscale") {
@@ -154,13 +154,13 @@ export class ThemeService {
     // Definir los colores para cada tema
     let themeColors: any = {}
     
-    if (theme === "dark") {
+    if (theme === "retro") {
       themeColors = {
         headerBg: "#0f0f1a",
         headerText: "#ffffff",
         cardBg: "#1e1e1e",
         cardText: "#f5f5f7",
-        cardBorder: "#444444",
+        cardBorder: "#00ff00",
         inputBg: "#2d2d2d",
         inputText: "#f5f5f7",
         inputBorder: "#444444"
@@ -176,9 +176,9 @@ export class ThemeService {
         inputText: "#ffcc00",
         inputBorder: "#00ff00"
       }
-    } else if (theme === "retro") {
+    } else if (theme === "dark") {
       themeColors = {
-       headerBg: "#330066",
+        headerBg: "#330066",
         headerText: "#00ffaa",
         cardBg: "#440066",
         cardText: "#00ff99",

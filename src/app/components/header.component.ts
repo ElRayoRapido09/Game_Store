@@ -592,8 +592,8 @@ export class HeaderComponent implements OnInit {
   currentTheme: 'cyberpunk' | 'retro' | 'dark' | 'grayscale' = 'cyberpunk';
   themes = [
     { key: 'cyberpunk', name: 'Cyberpunk', icon: '🌆' },
-    { key: 'retro', name: 'Retro', icon: '👾' },
-    { key: 'dark', name: 'Dark', icon: '🌙' },
+    { key: 'retro', name: 'Dark', icon: '👾' },
+    { key: 'dark', name: 'Retro', icon: '🌙' },
     { key: 'grayscale', name: 'Grayscale', icon: '⚫' }
   ];
   
