@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TextSizeComponent } from './text_size';
+import { ContrasteComponent } from './contraste/contraste.component';
 
 
 
 @Component({
   selector: 'app-settings',
   standalone: true,
-
-
-  imports: [TextSizeComponent, RouterModule],
-
+  imports: [TextSizeComponent, RouterModule, ContrasteComponent],
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })

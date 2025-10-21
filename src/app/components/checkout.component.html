@@ -136,7 +136,7 @@
           </label>
 
           <label class="payment-option" [class.selected]="selectedPaymentMethod === 'paypal'">
-            <input type="radio" [(ngModel)]="selectedPaymentMethod" value="paypal">
+            <input type="radio" [(ngModel)]="selectedPaymentMethod" value="paypal" (change)="onPaymentMethodChange()">
             <div class="payment-content">
               <div class="payment-icon">🅿️</div>
               <div class="payment-info">
@@ -147,17 +147,10 @@
             <div class="payment-check">✓</div>
           </label>
 
-          <label class="payment-option" [class.selected]="selectedPaymentMethod === 'crypto'">
-            <input type="radio" [(ngModel)]="selectedPaymentMethod" value="crypto">
-            <div class="payment-content">
-              <div class="payment-icon">₿</div>
-              <div class="payment-info">
-                <span class="payment-title">Criptomonedas</span>
-                <span class="payment-desc">Bitcoin, Ethereum, USDT</span>
-              </div>
-            </div>
-            <div class="payment-check">✓</div>
-          </label>
+        </div>
+
+        <div *ngIf="selectedPaymentMethod === 'paypal'" class="paypal-buttons-container">
+          <div id="paypal-button-container"></div>
         </div>
       </div>
     </div>

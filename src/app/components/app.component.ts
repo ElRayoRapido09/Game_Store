@@ -17,8 +17,8 @@ import { FooterComponent } from "./footer.component";
   template: `
     <div class="app-container" 
          [class.dark-theme]="currentTheme === 'dark'" 
-         [class.cyberpunk-theme]="currentTheme === 'cyberpunk'"
-         [class.retro-theme]="currentTheme === 'retro'">
+         [class.retro-theme]="currentTheme === 'retro'"
+         [class.grayscale-theme]="currentTheme === 'grayscale'">
       <app-header></app-header>
       <main class="main-content">
         <router-outlet></router-outlet>
@@ -43,25 +43,25 @@ import { FooterComponent } from "./footer.component";
     }
     
     .app-container.dark-theme {
-     background-color: #220033;
-      color: #00ff99;
-    }
-    
-    .app-container.cyberpunk-theme {
-      background-color: #000033;
-      color: #ffcc00;
+     background-color: #121212;
+      color: #f5f5f7;
     }
     
     .app-container.retro-theme {
-      background-color: #121212;
-      color: #f5f5f7;
+      background-color: #220033;
+      color: #00ff99;
+    }
+    
+    .app-container.grayscale-theme {
+      background-color: #2a2a2a;
+      color: #e0e0e0;
     }
     `,
   ],
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = "GameStore";
-  currentTheme: 'cyberpunk' | 'retro' | 'dark' = 'cyberpunk';
+  currentTheme: 'retro' | 'dark' | 'grayscale' = 'dark';
 
   constructor(
     private themeService: ThemeService,
@@ -79,15 +79,15 @@ export class AppComponent implements OnInit, OnDestroy {
       
       // Aplicar tema al body del documento
       this.renderer.removeClass(document.body, "dark-theme");
-      this.renderer.removeClass(document.body, "cyberpunk-theme");
       this.renderer.removeClass(document.body, "retro-theme");
+      this.renderer.removeClass(document.body, "grayscale-theme");
       
       if (theme === "dark") {
         this.renderer.addClass(document.body, "dark-theme");
-      } else if (theme === "cyberpunk") {
-        this.renderer.addClass(document.body, "cyberpunk-theme");
       } else if (theme === "retro") {
         this.renderer.addClass(document.body, "retro-theme");
+      } else if (theme === "grayscale") {
+        this.renderer.addClass(document.body, "grayscale-theme");
       }
     });
 
