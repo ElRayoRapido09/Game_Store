@@ -19,7 +19,7 @@ import { PurchaseOrder, PurchaseOrderItem, OrderSummary } from '../models/order.
 export class CheckoutComponent implements OnInit {
   cart: Cart | null = null;
   currentUser: User | null = null;
-  selectedPaymentMethod: string = '';
+  selectedPaymentMethod: string = ''; // Agregar esta línea
   isProcessing: boolean = false;
   showSuccessModal: boolean = false;
   successOrderNumber: string = '';
@@ -35,6 +35,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.loadCart();
     this.loadCurrentUser();
+    this.selectedPaymentMethod = 'credit_card'; // Selecciona tarjeta por defecto
   }
 
   loadCart(): void {
@@ -146,5 +147,55 @@ export class CheckoutComponent implements OnInit {
 
   viewOrderHistory(): void {
     this.router.navigate(['/purchase-history']);
+  }
+
+  // Agregar los métodos necesarios
+  onPaymentMethodChange() {
+    if (this.selectedPaymentMethod === 'paypal') {
+      setTimeout(() => {
+        this.initPayPalButtons();
+      }, 500);
+    }
+  }
+
+  initPayPalButtons() {
+    if (!(window as any).paypal) {
+      console.error('PayPal SDK no está cargado');
+      return;
+    }
+
+    const paypal = (window as any).paypal;
+    const container = document.getElementById('paypal-button-container');
+
+    if (container) {
+      container.innerHTML = '';
+    }
+
+    paypal.Buttons({
+      createOrder: (data: any, actions: any) => {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: this.orderSummary?.total?.toFixed(2) || '0.00'
+            }
+          }]
+        });
+      },
+      onApprove: (data: any, actions: any) => {
+        return actions.order.capture().then((details: any) => {
+          this.handlePayPalSuccess(details);
+        });
+      },
+      onError: (err: any) => {
+        console.error('Error PayPal:', err);
+        alert('Error en el pago con PayPal');
+      }
+    }).render('#paypal-button-container');
+  }
+
+  handlePayPalSuccess(details: any) {
+    console.log('✅ Pago exitoso:', details);
+    this.successOrderNumber = details.id;
+    this.showSuccessModal = true;
   }
 }
