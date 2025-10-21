@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="cyberpunk-theme">
+<html lang="en" class="dark-theme">
 <head>
   <meta charset="utf-8">
   <title>GameStore</title>
@@ -10,29 +10,18 @@
   
   <!-- Estilos inline para asegurar que el tema se aplique correctamente -->
   <style>
-    /* Estilos base - Cyberpunk Theme */
+    /* Estilos base - Dark Theme */
     body {
       font-family: 'VT323', monospace;
       margin: 0;
       padding: 0;
-      background-color: #000033;
-      color: #ffcc00;
+      background-color: #220033;
+      color: #00ff99;
       transition: background-color 0.3s ease, color 0.3s ease;
       text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
       background-image: 
-        linear-gradient(rgba(0, 0, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 255, 0.05) 1px, transparent 1px);
-      background-size: 20px 20px;
-    }
-    
-    /* Cyberpunk Theme */
-    html.cyberpunk-theme,
-    body.cyberpunk-theme {
-      background-color: #000033;
-      color: #ffcc00;
-      background-image: 
-        linear-gradient(rgba(0, 0, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 255, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px);
       background-size: 20px 20px;
     }
     
@@ -77,26 +66,6 @@
       z-index: 9999;
     }
     
-    /* Estilos de texto para tema Cyberpunk */
-    body.cyberpunk-theme p {
-      color: #00ffff;
-    }
-    
-    body.cyberpunk-theme h1,
-    body.cyberpunk-theme h2,
-    body.cyberpunk-theme h3,
-    body.cyberpunk-theme h4,
-    body.cyberpunk-theme h5,
-    body.cyberpunk-theme h6 {
-      color: #00ffff;
-      font-family: 'Press Start 2P', cursive;
-      text-transform: uppercase;
-    }
-    
-    body.cyberpunk-theme a:not(.btn) {
-      color: #ff00ff;
-    }
-    
     /* Estilos de texto para tema Dark */
     body.dark-theme p {
       color: #ff00ff;
@@ -138,7 +107,7 @@
     }
   </style>
 </head>
-<body class="cyberpunk-theme">
+<body class="dark-theme">
   <app-root></app-root>
   
 
@@ -152,8 +121,8 @@
       console.log(`Aplicando tema manualmente: ${theme}`);
       
       // Remover todas las clases de tema
-      html.classList.remove('cyberpunk-theme', 'dark-theme', 'retro-theme');
-      body.classList.remove('cyberpunk-theme', 'dark-theme', 'retro-theme');
+      html.classList.remove('dark-theme', 'retro-theme', 'grayscale-theme');
+      body.classList.remove('dark-theme', 'retro-theme', 'grayscale-theme');
       
       // Aplicar el tema seleccionado
       if (theme === 'dark') {
@@ -162,18 +131,18 @@
         body.style.backgroundColor = '#220033';
         body.style.color = '#00ff99';
         body.style.backgroundImage = 'linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px)';
-      } else if (theme === 'cyberpunk') {
-        html.classList.add('cyberpunk-theme');
-        body.classList.add('cyberpunk-theme');
-        body.style.backgroundColor = '#000033';
-        body.style.color = '#ffcc00';
-        body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 255, 0.05) 1px, transparent 1px)';
       } else if (theme === 'retro') {
         html.classList.add('retro-theme');
         body.classList.add('retro-theme');
         body.style.backgroundColor = '#121212';
         body.style.color = '#f5f5f7';
         body.style.backgroundImage = 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)';
+      } else if (theme === 'grayscale') {
+        html.classList.add('grayscale-theme');
+        body.classList.add('grayscale-theme');
+        body.style.backgroundColor = '#2a2a2a';
+        body.style.color = '#e0e0e0';
+        html.style.filter = 'grayscale(100%)';
       }
       
       localStorage.setItem('theme', theme);
@@ -191,12 +160,12 @@
         if (theme === 'dark') {
           header.style.backgroundColor = '#330066';
           header.style.borderBottom = '3px solid #00ffaa';
-        } else if (theme === 'cyberpunk') {
-          header.style.backgroundColor = '#000088';
-          header.style.borderBottom = '3px solid #00ff00';
         } else if (theme === 'retro') {
           header.style.backgroundColor = '#0f0f1a';
           header.style.borderBottom = '3px solid #444444';
+        } else if (theme === 'grayscale') {
+          header.style.backgroundColor = '#1a1a1a';
+          header.style.borderBottom = '3px solid #666666';
         }
       }
       
@@ -206,12 +175,12 @@
         if (theme === 'dark') {
           footer.style.backgroundColor = '#330066';
           footer.style.borderTop = '3px solid #00ffaa';
-        } else if (theme === 'cyberpunk') {
-          footer.style.backgroundColor = '#000088';
-          footer.style.borderTop = '3px solid #00ff00';
         } else if (theme === 'retro') {
           footer.style.backgroundColor = '#0f0f1a';
           footer.style.borderTop = '3px solid #444444';
+        } else if (theme === 'grayscale') {
+          footer.style.backgroundColor = '#1a1a1a';
+          footer.style.borderTop = '3px solid #666666';
         }
       }
       
@@ -223,15 +192,15 @@
           card.style.color = '#00ff99';
           card.style.border = '3px solid #00ffaa';
           card.style.boxShadow = '0 0 0 4px #ff00ff, 0 0 0 8px #330066';
-        } else if (theme === 'cyberpunk') {
-          card.style.backgroundColor = '#0000aa';
-          card.style.color = '#ffcc00';
-          card.style.border = '3px solid #00ff00';
-          card.style.boxShadow = '0 0 0 4px #00ffff, 0 0 0 8px #000088';
         } else if (theme === 'retro') {
           card.style.backgroundColor = '#1e1e1e';
           card.style.color = '#f5f5f7';
           card.style.border = '3px solid #444444';
+          card.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.3)';
+        } else if (theme === 'grayscale') {
+          card.style.backgroundColor = '#333333';
+          card.style.color = '#e0e0e0';
+          card.style.border = '3px solid #666666';
           card.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.3)';
         }
       });
@@ -243,14 +212,14 @@
           input.style.backgroundColor = '#220044';
           input.style.color = '#00ff99';
           input.style.borderColor = '#00ffaa';
-        } else if (theme === 'cyberpunk') {
-          input.style.backgroundColor = '#000055';
-          input.style.color = '#ffcc00';
-          input.style.borderColor = '#00ff00';
         } else if (theme === 'retro') {
           input.style.backgroundColor = '#2d2d2d';
           input.style.color = '#f5f5f7';
           input.style.borderColor = '#444444';
+        } else if (theme === 'grayscale') {
+          input.style.backgroundColor = '#404040';
+          input.style.color = '#f0f0f0';
+          input.style.borderColor = '#777777';
         }
       });
       
@@ -267,14 +236,14 @@
         textSecondary = '#ff00ff';
         linkColor = '#ff00ff';
         headingColor = '#00ffaa';
-      } else if (theme === 'cyberpunk') {
-        textSecondary = '#00ffff';
-        linkColor = '#ff00ff';
-        headingColor = '#00ffff';
       } else if (theme === 'retro') {
         textSecondary = '#b0b0b0';
         linkColor = '#ff6b8b';
         headingColor = '#ffffff';
+      } else if (theme === 'grayscale') {
+        textSecondary = '#b0b0b0';
+        linkColor = '#cccccc';
+        headingColor = '#f0f0f0';
       }
       
       // Aplicar estilos a párrafos
@@ -308,7 +277,7 @@
     
     // Verificar tema al cargar
     document.addEventListener('DOMContentLoaded', function() {
-      const savedTheme = localStorage.getItem('theme') || 'cyberpunk';
+      const savedTheme = localStorage.getItem('theme') || 'dark';
       const html = document.documentElement;
       const body = document.body;
       
@@ -317,7 +286,7 @@
       console.log(`Clases actuales en BODY: ${body.className}`);
       
       // Aplicar tema guardado o por defecto
-      if (savedTheme && ['cyberpunk', 'dark', 'retro'].includes(savedTheme)) {
+      if (savedTheme && ['dark', 'retro', 'grayscale'].includes(savedTheme)) {
         console.log(`Aplicando tema ${savedTheme} desde localStorage`);
         setThemeManually(savedTheme);
         

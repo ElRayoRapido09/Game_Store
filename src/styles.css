@@ -91,91 +91,8 @@ body {
   }
 }
 
-/* Variables de tema - Por defecto Cyberpunk */
+/* Variables de tema - Por defecto Dark */
 :root {
-  --bg-primary: #000033;
-  --bg-secondary: #0000aa;
-  --bg-tertiary: #0033cc;
-  --text-primary: #ffcc00;
-  --text-secondary: #00ffff;
-  --text-tertiary: #ff00ff;
-  --border-color: #00ff00;
-  --accent-color: #ff00ff;
-  --accent-hover: #ff66ff;
-  --header-bg: #000088;
-  --header-text: #ffcc00;
-  --card-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-  --input-bg: #000055;
-  --footer-bg: #000088;
-  --footer-text: #ffcc00;
-  --link-color: #ff00ff;
-  --heading-color: #00ffff;
-  --pixel-font: 'Courier New', monospace;
-  --retro-font: 'Courier New', monospace;
-  
-  /* Variable para tamaño de texto configurable */
-  --base-font-size: 16px;
-}
-
-/* Tema Cyberpunk */
-html.cyberpunk-theme,
-body.cyberpunk-theme {
-  --bg-primary: #000033;
-  --bg-secondary: #0000aa;
-  --bg-tertiary: #0033cc;
-  --text-primary: #ffcc00;
-  --text-secondary: #00ffff;
-  --text-tertiary: #ff00ff;
-  --border-color: #00ff00;
-  --accent-color: #ff00ff;
-  --accent-hover: #ff66ff;
-  --header-bg: #000088;
-  --header-text: #ffcc00;
-  --card-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-  --input-bg: #000055;
-  --footer-bg: #000088;
-  --footer-text: #ffcc00;
-  --link-color: #ff00ff;
-  --heading-color: #00ffff;
-  --pixel-font: 'Courier New', monospace;
-  --retro-font: 'Courier New', monospace;
-
-  /* Aplicar directamente los estilos más importantes */
-  background-color: #000033;
-  color: #ffcc00;
-}
-
-/* Tema Retro */
-html.retro-theme,
-body.retro-theme {
-  --bg-primary: #121212;
-  --bg-secondary: #1e1e1e;
-  --bg-tertiary: #2d2d2d;
-  --text-primary: #f5f5f7;
-  --text-secondary: #b0b0b0;
-  --text-tertiary: #808080;
-  --border-color: #444444;
-  --accent-color: #ff6b8b;
-  --accent-hover: #ff8fa3;
-  --header-bg: #0f0f1a;
-  --header-text: #ffffff;
-  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  --input-bg: #2d2d2d;
-  --footer-bg: #0f0f1a;
-  --footer-text: #f5f5f5;
-  --link-color: #ff6b8b;
-  --heading-color: #ffffff;
-  --pixel-font: 'Courier New', monospace;
-  --retro-font: 'Courier New', monospace;
-
-  /* Aplicar directamente los estilos más importantes */
-  background-color: #121212;
-  color: #f5f5f7;
-}
-
-/* Tema oscuro */
-html.dark-theme,
-body.dark-theme {
   --bg-primary: #220033;
   --bg-secondary: #440066;
   --bg-tertiary: #660099;
@@ -195,10 +112,65 @@ body.dark-theme {
   --heading-color: #00ffaa;
   --pixel-font: 'Courier New', monospace;
   --retro-font: 'Courier New', monospace;
+  
+  /* Variable para tamaño de texto configurable */
+  --base-font-size: 16px;
+}
+
+/* Tema Retro (morado/vaporwave) */
+html.retro-theme,
+body.retro-theme {
+  --bg-primary: #220033;
+  --bg-secondary: #440066;
+  --bg-tertiary: #660099;
+  --text-primary: #00ff99;
+  --text-secondary: #ff00ff;
+  --text-tertiary: #00ffaa;
+  --border-color: #ff00ff;
+  --accent-color: #ff00ff;
+  --accent-hover: #ff66ff;
+  --header-bg: #220033;
+  --header-text: #00ffaa;
+  --card-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+  --input-bg: #220044;
+  --footer-bg: #220033;
+  --footer-text: #00ffaa;
+  --link-color: #ff00ff;
+  --heading-color: #00ffaa;
+  --pixel-font: 'Courier New', monospace;
+  --retro-font: 'Courier New', monospace;
 
   /* Aplicar directamente los estilos más importantes */
   background-color: #220033;
   color: #00ff99;
+}
+
+/* Tema oscuro (dark/negro) */
+html.dark-theme,
+body.dark-theme {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2d2d2d;
+  --text-primary: #f5f5f7;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #808080;
+  --border-color: #444444;
+  --accent-color: #ff6b8b;
+  --accent-hover: #ff8fa3;
+  --header-bg: #121212;
+  --header-text: #ffffff;
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --input-bg: #2d2d2d;
+  --footer-bg: #121212;
+  --footer-text: #f5f5f5;
+  --link-color: #ff6b8b;
+  --heading-color: #ffffff;
+  --pixel-font: 'Courier New', monospace;
+  --retro-font: 'Courier New', monospace;
+
+  /* Aplicar directamente los estilos más importantes */
+  background-color: #121212;
+  color: #f5f5f7;
 }
 
 
@@ -622,8 +594,261 @@ small, .small {
   font-size: var(--base-font-size, 16px) !important;
 }
 
-/* Override específico para el tema cyberpunk */
-.cyberpunk-theme *, 
-body.cyberpunk-theme * {
-  font-size: var(--base-font-size, 16px) !important;
+/* ===== ESTILOS DE CONTRASTE ALTO ===== */
+body.high-contrast {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+}
+
+/* Aplicar solo colores, sin bordes extra - excluye dropdowns y menús */
+body.high-contrast *:not(.theme-dropdown-menu):not(.dropdown):not(.theme-option):not(.theme-dropdown-menu *):not(.dropdown *) {
+  background-color: transparent !important;
+  color: #FFFF00 !important;
+}
+
+/* Elementos que necesitan fondo negro */
+body.high-contrast,
+body.high-contrast main,
+body.high-contrast header,
+body.high-contrast nav,
+body.high-contrast footer,
+body.high-contrast section,
+body.high-contrast article,
+body.high-contrast aside,
+body.high-contrast .app-container,
+body.high-contrast .home-container,
+body.high-contrast .games-container,
+body.high-contrast .settings-container,
+body.high-contrast div[class*="container"],
+body.high-contrast div[class*="wrapper"] {
+  background-color: #000000 !important;
+}
+
+/* Botones en modo contraste */
+body.high-contrast button,
+body.high-contrast .btn,
+body.high-contrast a.btn,
+body.high-contrast [role="button"],
+body.high-contrast .btn-primary,
+body.high-contrast .btn-secondary,
+body.high-contrast .btn-typography {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border: 2px solid #FFFF00 !important;
+  text-decoration: none !important;
+}
+
+body.high-contrast button:hover,
+body.high-contrast .btn:hover,
+body.high-contrast a.btn:hover,
+body.high-contrast [role="button"]:hover {
+  background-color: #FFFF00 !important;
+  color: #000000 !important;
+}
+
+/* Links en modo contraste - SOLO subrayar links de navegación importantes */
+body.high-contrast a:not(.btn):not(.btn-primary):not(.btn-secondary):not(.btn-typography):not([class*="game-card"]) {
+  color: #00FFFF !important;
+  background-color: transparent !important;
+}
+
+/* Links en navegación y footer - sin subrayado innecesario */
+body.high-contrast nav a,
+body.high-contrast footer a {
+  color: #00FFFF !important;
+  text-decoration: none !important;
+}
+
+body.high-contrast nav a:hover,
+body.high-contrast footer a:hover {
+  color: #FFFFFF !important;
+  text-decoration: underline !important;
+}
+
+/* Links normales en contenido */
+body.high-contrast .view-all,
+body.high-contrast a[routerLink] {
+  color: #00FFFF !important;
+  text-decoration: none !important;
+}
+
+body.high-contrast .view-all:hover,
+body.high-contrast a[routerLink]:hover {
+  color: #FFFFFF !important;
+}
+
+/* Inputs en modo contraste */
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+body.high-contrast input::placeholder,
+body.high-contrast textarea::placeholder {
+  color: #CCCC00 !important;
+}
+
+/* Cards de juegos */
+body.high-contrast .card,
+body.high-contrast .game-card,
+body.high-contrast [class*="game-card"],
+body.high-contrast [class*="product-card"] {
+  background-color: #1a1a1a !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+/* Secciones con bordes */
+body.high-contrast .settings-section,
+body.high-contrast .contraste-control,
+body.high-contrast [class*="section"] {
+  background-color: #0a0a0a !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+/* Imágenes mantienen su visibilidad */
+body.high-contrast img {
+  opacity: 1 !important;
+  filter: contrast(1.2) brightness(0.9) !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* SVG e iconos */
+body.high-contrast svg,
+body.high-contrast i {
+  fill: #FFFF00 !important;
+  color: #FFFF00 !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Headers y títulos */
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6,
+body.high-contrast .settings-title,
+body.high-contrast .section-header h2 {
+  color: #FFFFFF !important;
+  background-color: transparent !important;
+}
+
+/* Texto normal */
+body.high-contrast p,
+body.high-contrast span:not(.theme-icon):not(.theme-name),
+body.high-contrast label,
+body.high-contrast li {
+  color: #FFFF00 !important;
+  background-color: transparent !important;
+}
+
+/* Evitar bordes en divs genéricos */
+body.high-contrast div {
+  border: none !important;
+}
+
+/* Solo los divs que son contenedores principales con bordes */
+body.high-contrast div[class*="container"],
+body.high-contrast div[class*="wrapper"],
+body.high-contrast div[class*="layout"] {
+  background-color: #000000 !important;
+}
+
+/* Hero section */
+body.high-contrast .hero {
+  background-color: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+body.high-contrast .hero-content {
+  background-color: transparent !important;
+}
+
+/* Grid de juegos */
+body.high-contrast .games-grid {
+  background-color: transparent !important;
+}
+
+/* Toggle switch */
+body.high-contrast .toggle-switch .slider {
+  background-color: #333333 !important;
+  border: 1px solid #FFFF00 !important;
+}
+
+body.high-contrast .toggle-switch input:checked + .slider {
+  background-color: #FFFF00 !important;
+}
+
+body.high-contrast .toggle-switch .slider:before {
+  background-color: #FFFFFF !important;
+}
+
+/* Header/Navbar específico */
+body.high-contrast header {
+  border-bottom: 2px solid #FFFF00 !important;
+}
+
+/* Footer específico */
+body.high-contrast footer {
+  border-top: 2px solid #FFFF00 !important;
+}
+
+/* ===== DROPDOWNS Y MENÚS DESPLEGABLES ===== */
+/* Menú de temas/theme selector */
+body.high-contrast .theme-dropdown-menu,
+body.high-contrast .dropdown {
+  background-color: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+  box-shadow: 4px 4px 0 rgba(255, 255, 0, 0.3) !important;
+}
+
+/* Opciones dentro del menú de temas */
+body.high-contrast .theme-option,
+body.high-contrast .dropdown a,
+body.high-contrast .dropdown button {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border-bottom: 1px solid #FFFF00 !important;
+}
+
+body.high-contrast .theme-option:hover,
+body.high-contrast .dropdown a:hover,
+body.high-contrast .dropdown button:hover {
+  background-color: #FFFF00 !important;
+  color: #000000 !important;
+}
+
+body.high-contrast .theme-option.active {
+  background-color: #CCCC00 !important;
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+
+/* Iconos dentro de los menús */
+body.high-contrast .theme-option svg,
+body.high-contrast .theme-option span,
+body.high-contrast .dropdown svg,
+body.high-contrast .dropdown span {
+  color: inherit !important;
+  fill: inherit !important;
+}
+
+/* Menú de usuario */
+body.high-contrast .user-info .dropdown {
+  background-color: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+/* Popovers y modales */
+body.high-contrast [class*="popover"],
+body.high-contrast [class*="modal"],
+body.high-contrast [role="dialog"] {
+  background-color: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+  color: #FFFF00 !important;
 }

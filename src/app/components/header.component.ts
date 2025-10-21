@@ -589,11 +589,10 @@ import { Cart } from "../models/cart.model";
 export class HeaderComponent implements OnInit {
   currentUser: User | null = null;
   cart: Cart = { items: [], totalItems: 0, totalPrice: 0 };
-  currentTheme: 'cyberpunk' | 'retro' | 'dark' | 'grayscale' = 'cyberpunk';
+  currentTheme: 'dark' | 'retro' | 'grayscale' = 'dark';
   themes = [
-    { key: 'cyberpunk', name: 'Cyberpunk', icon: '🌆' },
-    { key: 'retro', name: 'Dark', icon: '👾' },
-    { key: 'dark', name: 'Retro', icon: '🌙' },
+    { key: 'retro', name: 'Retro', icon: '👾' },
+    { key: 'dark', name: 'Dark', icon: '🌙' },
     { key: 'grayscale', name: 'Grayscale', icon: '⚫' }
   ];
   
@@ -627,12 +626,12 @@ export class HeaderComponent implements OnInit {
     this.themeService.toggleTheme();
   }
 
-  setTheme(theme: 'cyberpunk' | 'retro' | 'dark' | 'grayscale'): void {
+  setTheme(theme: 'retro' | 'dark' | 'grayscale'): void {
     this.themeService.setTheme(theme);
   }
 
   onThemeSelect(themeKey: string): void {
-    if (themeKey === 'cyberpunk' || themeKey === 'retro' || themeKey === 'dark' || themeKey === 'grayscale') {
+    if ( themeKey === 'retro' || themeKey === 'dark' || themeKey === 'grayscale') {
       this.setTheme(themeKey);
       this.isThemeMenuOpen = false; // Cerrar menú después de seleccionar
     }
