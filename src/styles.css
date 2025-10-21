@@ -631,6 +631,9 @@ body.cyberpunk-theme * {
 /* Custom cursor styles */
 :root {
   --cursor-size: 16px;
+  /* Offsets para alinear la punta del cursor visual con el puntero real */
+  --cursor-offset-x: -6px;
+  --cursor-offset-y: -2px;
 }
 
 #custom-cursor {
@@ -639,7 +642,7 @@ body.cyberpunk-theme * {
   z-index: 9999;
   width: var(--cursor-size);
   height: var(--cursor-size);
-  transform: translate(-50%, -50%);
+  transform: translate(var(--cursor-offset-x, 0px), var(--cursor-offset-y, 0px));
   left: 0;
   top: 0;
 }

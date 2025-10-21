@@ -10,7 +10,7 @@ body {
   top: 0;
   width: var(--cursor-size, 32px);
   height: var(--cursor-size, 32px);
-  transform: translate(-50%, -50%);
+  transform: translate(var(--cursor-offset-x, 0px), var(--cursor-offset-y, 0px));
 }
 
 #custom-cursor-img {
@@ -25,7 +25,7 @@ body {
 #custom-cursor {
   position: fixed;
   pointer-events: none;
-  transform: translate(-50%, -50%);
+  transform: translate(var(--cursor-offset-x, 0px), var(--cursor-offset-y, 0px));
   z-index: 9999;
 }
 
@@ -37,6 +37,11 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --cursor-offset-x: -6px;
+  --cursor-offset-y: -2px;
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
