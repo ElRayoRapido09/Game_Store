@@ -852,3 +852,35 @@ body.high-contrast [role="dialog"] {
   border: 2px solid #FFFF00 !important;
   color: #FFFF00 !important;
 }
+
+/* Custom cursor styles */
+:root {
+  --cursor-size: 16px;
+  /* Offsets para alinear la punta del cursor visual con el puntero real */
+  --cursor-offset-x: -6px;
+  --cursor-offset-y: -2px;
+}
+
+#custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  transform: translate(var(--cursor-offset-x, 0px), var(--cursor-offset-y, 0px));
+  left: 0;
+  top: 0;
+}
+
+#custom-cursor-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Ocultar el cursor nativo en toda la app para que se vea el cursor personalizado */
+html, body, * {
+  cursor: none !important;
+}

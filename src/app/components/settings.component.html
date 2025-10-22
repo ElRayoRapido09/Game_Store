@@ -1,3 +1,4 @@
+
 <div class="settings-container">
   <h2 class="settings-title">Configuraciones</h2>
   
@@ -14,5 +15,23 @@
       Cambio de tipografía
     </button>
   </div>
+  
+ <div class="settings-section">
+  <h2 class="settings-title-small">Configuración del Cursor</h2>
+
+  <label for="cursorSize" class="settings-label">
+    Tamaño del cursor: <span class="font-bold">{{ cursorSize }}px</span>
+  </label>
+
+  <input
+    id="cursorSize"
+    type="range"
+    min="10"
+    max="80"
+    [value]="cursorSize"
+    (input)="changeCursorSize($event)"
+    class="settings-slider"
+  />
 </div>
 
+</div>
