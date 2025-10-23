@@ -1,6 +1,6 @@
 import { Component, HostListener, type OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
-import { RouterLink, Router } from "@angular/router"
+import { RouterLink, Router } from "@angular/router" //kevin
 import  { GameService } from "../services/game.service"
 import { AuthService } from "../services/auth.service"
 import type { Game } from "../models/game.model"
