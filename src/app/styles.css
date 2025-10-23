@@ -4,53 +4,28 @@
 
 /* Variables de tema */
 :root {
-  /* Tema por defecto - Cyberpunk */
-  --bg-primary: #000033;
-  --bg-secondary: #0000aa;
-  --bg-tertiary: #000088;
-  --text-primary: #ffcc00;
-  --text-secondary: #00ffff;
-  --text-tertiary: #ff00ff;
-  --border-color: #00ff00;
+  /* Tema por defecto - Dark */
+  --bg-primary: #220033;
+  --bg-secondary: #440066;
+  --bg-tertiary: #330055;
+  --text-primary: #00ff99;
+  --text-secondary: #ff00ff;
+  --text-tertiary: #ffcc00;
+  --border-color: #00ffaa;
   --accent-color: #ff0099;
   --accent-hover: #ff00ff;
-  --header-bg: #000088;
-  --header-text: #ffcc00;
-  --card-shadow: 0 0 0 4px #00ffff, 0 0 0 8px #000088;
-  --input-bg: #000055;
-  --footer-bg: #000088;
-  --footer-text: #ffcc00;
+  --header-bg: #330066;
+  --header-text: #00ffaa;
+  --card-shadow: 0 0 0 4px #ff00ff, 0 0 0 8px #330066;
+  --input-bg: #220044;
+  --footer-bg: #330066;
+  --footer-text: #00ffaa;
   --link-color: #ff00ff;
-  --heading-color: #00ffff;
+  --heading-color: #00ffaa;
 
   /* Fuentes */
   --pixel-font: "Press Start 2P", "Courier New", monospace;
   --retro-font: "VT323", "Courier New", monospace;
-}
-
-/* Tema Cyberpunk */
-html.cyberpunk-theme,
-body.cyberpunk-theme {
-  --bg-primary: #000033;
-  --bg-secondary: #0000aa;
-  --bg-tertiary: #000088;
-  --text-primary: #ffcc00;
-  --text-secondary: #00ffff;
-  --text-tertiary: #ff00ff;
-  --border-color: #00ff00;
-  --accent-color: #ff0099;
-  --accent-hover: #ff00ff;
-  --header-bg: #000088;
-  --header-text: #ffcc00;
-  --card-shadow: 0 0 0 4px #00ffff, 0 0 0 8px #000088;
-  --input-bg: #000055;
-  --footer-bg: #000088;
-  --footer-text: #ffcc00;
-  --link-color: #ff00ff;
-  --heading-color: #00ffff;
-
-  background-color: #000033;
-  color: #ffcc00;
 }
 
 /* Tema Dark (Purple/Green) */
@@ -76,9 +51,7 @@ body.dark-theme {
 
   background-color: #220033;
   color: #00ff99;
-}
-
-/* Tema Retro (Modern Dark) */
+}/* Tema Retro (Modern Dark) */
 html.retro-theme,
 body.retro-theme {
   --bg-primary: #121212;

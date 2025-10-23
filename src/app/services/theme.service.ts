@@ -1,7 +1,7 @@
 import { Injectable, Renderer2, RendererFactory2 } from "@angular/core"
 import { BehaviorSubject } from "rxjs"
 
-export type Theme = "cyberpunk" | "retro" | "dark"
+export type Theme = "retro" | "dark" | "grayscale"
 
 @Injectable({
   providedIn: "root",
@@ -21,13 +21,13 @@ export class ThemeService {
   private getInitialTheme(): Theme {
     console.log("ThemeService: Obteniendo tema inicial")
     const savedTheme = localStorage.getItem("theme") as Theme
-    if (savedTheme) {
+    if (savedTheme && (savedTheme === 'retro' || savedTheme === 'dark' || savedTheme === 'grayscale')) {
       console.log(`ThemeService: Tema encontrado en localStorage: ${savedTheme}`)
       return savedTheme
     }
 
     console.log("ThemeService: No hay tema guardado, usando tema por defecto")
-    return "cyberpunk"
+    return "dark"
   }
 
   private initTheme(): void {
@@ -64,12 +64,14 @@ export class ThemeService {
       console.log(`ThemeService: Aplicando clase de tema a HTML y BODY: ${theme}`)
 
       // Remover todas las clases de tema existentes
-      html.classList.remove("light-theme", "dark-theme", "cyberpunk-theme", "retro-theme")
-      body.classList.remove("light-theme", "dark-theme", "cyberpunk-theme", "retro-theme")
+      html.classList.remove("light-theme", "dark-theme", "retro-theme", "grayscale-theme")
+      body.classList.remove("light-theme", "dark-theme", "retro-theme", "grayscale-theme")
 
-      // Limpiar estilos inline previos
+      // Limpiar estilos inline previos y filtros
       html.removeAttribute('style')
       body.removeAttribute('style')
+      html.style.filter = ''
+      body.style.filter = ''
 
       // Aplicar el tema seleccionado
       const themeClass = `${theme}-theme`
@@ -78,17 +80,19 @@ export class ThemeService {
 
       // Aplicar colores de fondo directamente para asegurar consistencia
       if (theme === "dark") {
-        body.style.setProperty('background-color', '#220033', 'important')
-        body.style.setProperty('color', '#00ff99', 'important')
-        console.log("ThemeService: Tema dark aplicado")
-      } else if (theme === "cyberpunk") {
-        body.style.setProperty('background-color', '#000033', 'important')
-        body.style.setProperty('color', '#ffcc00', 'important')
-        console.log("ThemeService: Tema cyberpunk aplicado")
-      } else if (theme === "retro") {
-        body.style.setProperty('background-color', '#121212', 'important')
+       body.style.setProperty('background-color', '#121212', 'important')
         body.style.setProperty('color', '#f5f5f7', 'important')
+        console.log("ThemeService: Tema dark aplicado")
+      } else if (theme === "retro") {
+       body.style.setProperty('background-color', '#220033', 'important')
+        body.style.setProperty('color', '#00ff99', 'important')
         console.log("ThemeService: Tema retro aplicado")
+      } else if (theme === "grayscale") {
+        body.style.setProperty('background-color', '#2a2a2a', 'important')
+        body.style.setProperty('color', '#e0e0e0', 'important')
+        // Aplicar filtro de escala de grises a toda la interfaz
+        html.style.setProperty('filter', 'grayscale(100%)', 'important')
+        console.log("ThemeService: Tema grayscale aplicado con filtro global")
       }
 
       // Forzar re-renderizado
@@ -119,17 +123,17 @@ export class ThemeService {
     
     // Ciclar entre los tres temas
     switch (currentTheme) {
-      case "cyberpunk":
-        newTheme = "retro"
-        break
       case "retro":
         newTheme = "dark"
         break
       case "dark":
-        newTheme = "cyberpunk"
+        newTheme = "grayscale"
+        break
+      case "grayscale":
+        newTheme = "retro"
         break
       default:
-        newTheme = "cyberpunk"
+        newTheme = "dark"
         break
     }
     
@@ -143,39 +147,56 @@ export class ThemeService {
     // Definir los colores para cada tema
     let themeColors: any = {}
     
-    if (theme === "dark") {
+    if (theme === "retro") {
       themeColors = {
-        headerBg: "#330066",
+        headerBg: "#220033",
         headerText: "#00ffaa",
         cardBg: "#440066",
         cardText: "#00ff99",
         cardBorder: "#ff00ff",
         inputBg: "#220044",
         inputText: "#00ff99",
-        inputBorder: "#00ffaa"
+        inputBorder: "#00ffaa",
+        bodyBg: "#220033"
       }
-    } else if (theme === "cyberpunk") {
+    } else if (theme === "dark") {
       themeColors = {
-        headerBg: "#000088",
-        headerText: "#ffcc00",
-        cardBg: "#0000aa",
-        cardText: "#ffcc00",
-        cardBorder: "#00ffff",
-        inputBg: "#000055",
-        inputText: "#ffcc00",
-        inputBorder: "#00ff00"
-      }
-    } else if (theme === "retro") {
-      themeColors = {
-        headerBg: "#0f0f1a",
+        headerBg: "#121212",
         headerText: "#ffffff",
         cardBg: "#1e1e1e",
         cardText: "#f5f5f7",
-        cardBorder: "#444444",
+        cardBorder: "#00ff00",
         inputBg: "#2d2d2d",
         inputText: "#f5f5f7",
-        inputBorder: "#444444"
+        inputBorder: "#444444",
+        bodyBg: "#121212"
       }
+    } else if (theme === "grayscale") {
+      themeColors = {
+        headerBg: "#1a1a1a",
+        headerText: "#f0f0f0",
+        cardBg: "#333333",
+        cardText: "#e0e0e0",
+        cardBorder: "#666666",
+        inputBg: "#404040",
+        inputText: "#f0f0f0",
+        inputBorder: "#777777"
+      }
+    }
+
+    // Aplicar fondo consistente al body y elementos principales
+    const body = document.body
+    const html = document.querySelector("html")
+    const main = document.querySelector("main")
+    
+    if (body) {
+      body.style.setProperty('background-color', themeColors.bodyBg, 'important')
+    }
+    if (html) {
+      html.style.setProperty('background-color', themeColors.bodyBg, 'important')
+    }
+    if (main) {
+      main.style.setProperty('background-color', themeColors.bodyBg, 'important')
     }
 
     // Aplicar estilos al header
@@ -229,24 +250,24 @@ export class ThemeService {
     
     if (theme === "dark") {
       textColors = {
+        primary: "#f5f5f7",
+        secondary: "#b0b0b0",
+        link: "#ff6b8b",
+        heading: "#ffffff"
+      }
+    } else if (theme === "retro") {
+      textColors = {
         primary: "#00ff99",
         secondary: "#ff00ff", 
         link: "#ff00ff",
         heading: "#00ffaa"
       }
-    } else if (theme === "cyberpunk") {
+    } else if (theme === "grayscale") {
       textColors = {
-        primary: "#ffcc00",
-        secondary: "#00ffff",
-        link: "#ff00ff", 
-        heading: "#00ffff"
-      }
-    } else if (theme === "retro") {
-      textColors = {
-        primary: "#f5f5f7",
+        primary: "#e0e0e0",
         secondary: "#b0b0b0",
-        link: "#ff6b8b",
-        heading: "#ffffff"
+        link: "#cccccc",
+        heading: "#f0f0f0"
       }
     }
 
