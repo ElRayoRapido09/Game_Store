@@ -24,7 +24,7 @@
           <p class="header-subtitle">Completa tu pedido de forma segura</p>
         </div>
       </div>
-      <button (click)="goBack()" class="btn-back">
+      <button (click)="goBack()" class="btn-back" [attr.aria-label]="'Volver al carrito'">
         <span class="btn-icon">←</span>
         <span>Volver al Carrito</span>
       </button>
@@ -182,6 +182,7 @@
           (click)="processPurchase()" 
           [disabled]="isProcessing || !selectedPaymentMethod"
           class="btn-purchase"
+          [attr.aria-label]="'Completar compra'"
         >
           <span class="btn-content" *ngIf="!isProcessing">
             <span class="btn-icon">🎮</span>
@@ -235,7 +236,7 @@
     <div class="empty-message">
       <h2>🛒 Tu carrito está vacío</h2>
       <p>Agrega algunos juegos antes de proceder al checkout</p>
-      <button (click)="goToStore()" class="btn-shop">🎮 Ir a la Tienda</button>
+      <button (click)="goToStore()" class="btn-shop" [attr.aria-label]="'Ir a la tienda'">🎮 Ir a la Tienda</button>
     </div>
   </div>
 
@@ -297,17 +298,17 @@
       </div>
 
       <div class="success-actions">
-        <button (click)="viewOrderHistory()" class="btn-primary">
+        <button (click)="viewOrderHistory()" class="btn-primary" [attr.aria-label]="'Ver mis compras'">
           <span class="btn-icon">📋</span>
           Ver Mis Compras
         </button>
-        <button (click)="goToStore()" class="btn-secondary">
+        <button (click)="goToStore()" class="btn-secondary" [attr.aria-label]="'Seguir comprando'">
           <span class="btn-icon">🎮</span>
           Seguir Comprando
         </button>
       </div>
 
-      <button class="modal-close-btn" (click)="closeSuccessModal()">
+      <button class="modal-close-btn" (click)="closeSuccessModal()" [attr.aria-label]="'Cerrar modal'">
         <span>×</span>
       </button>
     </div>

@@ -105,7 +105,7 @@ import type { User } from "../models/user.model"
                 #password="ngModel"
                 [class.is-invalid]="password.invalid && (password.dirty || password.touched)"
               >
-              <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+              <button type="button" class="toggle-password" (click)="togglePasswordVisibility()" aria-label="Mostrar u ocultar contraseña"><!-- kevin -->
                 <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
@@ -135,7 +135,7 @@ import type { User } from "../models/user.model"
                 #confirmPasswordField="ngModel"
                 [class.is-invalid]="(confirmPasswordField.invalid && (confirmPasswordField.dirty || confirmPasswordField.touched)) || passwordMismatch"
               >
-              <button type="button" class="toggle-password" (click)="toggleConfirmPasswordVisibility()">
+              <button type="button" class="toggle-password" (click)="toggleConfirmPasswordVisibility()" aria-label="Mostrar u ocultar confirmación de contraseña"><!-- kevin -->
                 <svg *ngIf="!showConfirmPassword" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>

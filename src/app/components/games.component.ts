@@ -20,7 +20,7 @@ import { GameCardComponent } from "./game-card.component"
       </div>
       
       <div class="mobile-filter-toggle">
-        <button class="btn-toggle-filters" (click)="toggleMobileFilters()">
+        <button class="btn-toggle-filters" (click)="toggleMobileFilters()" [attr.aria-label]="'Mostrar u ocultar filtros'"><!-- kevin -->
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
             <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
           </svg>
@@ -30,7 +30,7 @@ import { GameCardComponent } from "./game-card.component"
       
       <div class="games-content">
         <div class="filters-sidebar" [class.mobile-open]="showMobileFilters">
-          <div class="mobile-filter-overlay" (click)="closeMobileFilters()"></div>
+          <button class="mobile-filter-overlay" (click)="closeMobileFilters()" [attr.aria-label]="'Cerrar filtros'"><!-- kevin --></button>
           
           <div class="filter-content">
             <div class="filter-section">
@@ -69,7 +69,8 @@ import { GameCardComponent } from "./game-card.component"
                   step="5" 
                   [(ngModel)]="priceFilter" 
                   (ngModelChange)="applyFilters()"
-                >
+                  aria-label="Filtrar por precio máximo"
+                ><!-- kevin -->
                 <div class="price-values">
                   <span>$0</span>
                   <span>\${{priceFilter}}</span>
@@ -92,7 +93,7 @@ import { GameCardComponent } from "./game-card.component"
             
             <div class="filter-section">
               <h3>Ordenar por</h3>
-              <select [(ngModel)]="sortBy" (ngModelChange)="applyFilters()">
+              <select [(ngModel)]="sortBy" (ngModelChange)="applyFilters()" [attr.aria-label]="'Ordenar juegos por'">
                 <option value="relevance">Relevancia</option>
                 <option value="price-low">Precio: Menor a Mayor</option>
                 <option value="price-high">Precio: Mayor a Menor</option>

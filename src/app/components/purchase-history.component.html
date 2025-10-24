@@ -121,6 +121,7 @@
                 class="btn-resend" 
                 (click)="resendKeys(order.orderNumber)"
                 title="Reenviar keys por correo electrónico"
+                [attr.aria-label]="'Reenviar keys por correo electrónico'"
               >
                 <span class="btn-icon">📧</span>
                 Reenviar
@@ -149,6 +150,8 @@
                     class="key-code-display" 
                     (click)="copyKeyToClipboard(key.key)"
                     title="Click para copiar al portapapeles"
+                    role="button"
+                    aria-label="Copiar key al portapapeles"
                   >
                     <div class="key-code">{{ key.key }}</div>
                     <div class="copy-hint">📋 Click para copiar</div>
@@ -202,7 +205,7 @@
           <span>Compras seguras</span>
         </div>
       </div>
-      <a routerLink="/games" class="btn-explore">
+      <a routerLink="/games" class="btn-explore" [attr.aria-label]="'Explorar juegos'">
         <span class="btn-icon">🎮</span>
         Explorar Juegos
       </a>

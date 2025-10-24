@@ -23,19 +23,25 @@ import { Router } from "@angular/router";
         <button 
           class="tab-button"
           [class.active]="activeTab === 'list'"
-          (click)="setActiveTab('list')">
+          (click)="setActiveTab('list')"
+          [attr.aria-label]="'Lista de juegos'"
+        >
           📋 Lista de Juegos
         </button>
         <button 
           class="tab-button"
           [class.active]="activeTab === 'add'"
-          (click)="setActiveTab('add')">
+          (click)="setActiveTab('add')"
+          [attr.aria-label]="'Agregar juego'"
+        >
           ➕ Agregar Juego
         </button>
         <button 
           class="tab-button"
           [class.active]="activeTab === 'stock'"
-          (click)="setActiveTab('stock')">
+          (click)="setActiveTab('stock')"
+          [attr.aria-label]="'Gestión de stock'"
+        >
           📦 Gestión de Stock
         </button>
       </div>
@@ -50,8 +56,10 @@ import { Router } from "@angular/router";
                 type="text" 
                 placeholder="Buscar juegos..."
                 [(ngModel)]="searchTerm"
-                (input)="filterGames()">
-              <button class="search-btn">🔍</button>
+                (input)="filterGames()"
+                [attr.aria-label]="'Buscar juegos'"
+              >
+              <button class="search-btn" [attr.aria-label]="'Buscar'">🔍</button>
             </div>
           </div>
           
@@ -67,8 +75,8 @@ import { Router } from "@angular/router";
                 <p class="game-category">{{ game.category }}</p>
               </div>
               <div class="game-actions">
-                <button class="btn-edit" (click)="editGame(game)">✏️ Editar</button>
-                <button class="btn-delete" (click)="confirmDelete(game)">🗑️ Eliminar</button>
+                <button class="btn-edit" (click)="editGame(game)" [attr.aria-label]="'Editar ' + game.title">✏️ Editar</button>
+                <button class="btn-delete" (click)="confirmDelete(game)" [attr.aria-label]="'Eliminar ' + game.title">🗑️ Eliminar</button>
               </div>
             </div>
           </div>
@@ -285,20 +293,22 @@ import { Router } from "@angular/router";
                   <button 
                     type="button" 
                     class="btn-add-simple" 
-                    (click)="addScreenshot()">
+                    (click)="addScreenshot()"
+                    [attr.aria-label]="'Agregar captura de pantalla'"
+                  >
                     ➕ Agregar Captura
                   </button>
                 </div>
                 
                 <div class="example-buttons">
                   <p class="example-text">O usa estos ejemplos que funcionan:</p>
-                  <button type="button" class="btn-example" (click)="addExampleScreenshot(1)">
+                  <button type="button" class="btn-example" (click)="addExampleScreenshot(1)" [attr.aria-label]="'Agregar ejemplo de captura 1'">
                     📸 Ejemplo 1
                   </button>
-                  <button type="button" class="btn-example" (click)="addExampleScreenshot(2)">
+                  <button type="button" class="btn-example" (click)="addExampleScreenshot(2)" [attr.aria-label]="'Agregar ejemplo de captura 2'">
                     📸 Ejemplo 2
                   </button>
-                  <button type="button" class="btn-example" (click)="addExampleScreenshot(3)">
+                  <button type="button" class="btn-example" (click)="addExampleScreenshot(3)" [attr.aria-label]="'Agregar ejemplo de captura 3'">
                     📸 Ejemplo 3
                   </button>
                 </div>
@@ -321,16 +331,16 @@ import { Router } from "@angular/router";
                 <!-- Screenshots -->
                 <div class="media-item screenshot-item" *ngFor="let screenshot of currentScreenshots; let i = index">
                   <img [src]="screenshot" [alt]="'Captura ' + (i + 1)" class="screenshot-thumb">
-                  <button type="button" class="btn-remove" (click)="removeScreenshot(i)">❌</button>
+                  <button type="button" class="btn-remove" (click)="removeScreenshot(i)" [attr.aria-label]="'Eliminar captura ' + (i+1)">❌</button>
                 </div>
               </div>
             </div>
 
             <div class="form-actions">
-              <button type="submit" class="btn-save" [disabled]="!gameForm.valid">
+              <button type="submit" class="btn-save" [disabled]="!gameForm.valid" [attr.aria-label]="'Guardar juego'">
                 {{ editingGame ? '💾 Actualizar' : '💾 Guardar' }}
               </button>
-              <button type="button" class="btn-cancel" (click)="cancelEdit()">
+              <button type="button" class="btn-cancel" (click)="cancelEdit()" [attr.aria-label]="'Cancelar edición'">
                 ❌ Cancelar
               </button>
             </div>
@@ -362,7 +372,9 @@ import { Router } from "@angular/router";
                     min="0">
                   <button 
                     class="btn-update-stock"
-                    (click)="updateStock(game)">
+                    (click)="updateStock(game)"
+                    [attr.aria-label]="'Actualizar stock de ' + game.title"
+                  >
                     🔄 Actualizar
                   </button>
                 </div>
@@ -377,7 +389,7 @@ import { Router } from "@angular/router";
       <div class="access-denied">
         <h2>🚫 Acceso Denegado</h2>
         <p>No tienes permisos para acceder al panel de administración.</p>
-        <button class="btn-back" (click)="goBack()">← Volver</button>
+        <button class="btn-back" (click)="goBack()" [attr.aria-label]="'Volver'">← Volver</button>
       </div>
     </ng-template>
   `,
