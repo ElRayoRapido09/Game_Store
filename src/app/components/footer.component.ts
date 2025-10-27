@@ -44,42 +44,12 @@ import { RouterLink } from "@angular/router"
             </div>
           </div>
 
-          <!-- Enlaces rápidos -->
-          <div class="footer-section">
-            <h4 class="footer-title">Enlaces Rápidos</h4>
-            <ul class="footer-links">
-              <li><a routerLink="/games">Todos los Juegos</a></li>
-              <li><a routerLink="/games?category=action">Acción</a></li>
-              <li><a routerLink="/games?category=adventure">Aventura</a></li>
-              <li><a routerLink="/games?category=rpg">RPG</a></li>
-              <li><a routerLink="/games?category=sports">Deportes</a></li>
-              <li><a routerLink="/games?category=strategy">Estrategia</a></li>
-            </ul>
-          </div>
-
           <!-- Información -->
           <div class="footer-section">
             <h4 class="footer-title">Información</h4>
             <ul class="footer-links">
-              <li><a href="#about">Sobre Nosotros</a></li>
-              <li><a href="#contact">Contacto</a></li>
-              <li><a href="#shipping">Envíos</a></li>
-              <li><a href="#returns">Devoluciones</a></li>
-              <li><a href="#support">Soporte</a></li>
-              <li><a href="#faq">FAQ</a></li>
-            </ul>
-          </div>
-
-          <!-- Mi Cuenta -->
-          <div class="footer-section">
-            <h4 class="footer-title">Mi Cuenta</h4>
-            <ul class="footer-links">
-              <li><a routerLink="/login">Iniciar Sesión</a></li>
-              <li><a routerLink="/register">Registrarse</a></li>
-              <li><a routerLink="/profile">Mi Perfil</a></li>
-              <li><a routerLink="/cart">Mi Carrito</a></li>
-              <li><a href="#orders">Mis Pedidos</a></li>
-              <li><a href="#wishlist">Lista de Deseos</a></li>
+              <li><a routerLink="/about">Sobre Nosotros</a></li>
+              <li><a routerLink="/contact">Contacto</a></li>
             </ul>
           </div>
         </div>
@@ -89,9 +59,7 @@ import { RouterLink } from "@angular/router"
           <div class="footer-legal">
             <p>&copy; 2024 GameStore. Todos los derechos reservados.</p>
             <div class="legal-links">
-              <a href="#privacy">Política de Privacidad</a>
-              <a href="#terms">Términos de Uso</a>
-              <a href="#cookies">Política de Cookies</a>
+              <a routerLink="/privacy">Política de Privacidad</a>
             </div>
           </div>
         </div>

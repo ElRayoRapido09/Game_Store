@@ -14,6 +14,9 @@ import { AdminPanelComponent } from "./components/admin-panel.component"
 import { UiDemoComponent } from "./components/ui-demo.component"
 import { SettingsComponent } from "./components/settings.component"
 import { TypographyComponent } from "./components/typography/typography.component"
+import { AboutComponent } from "./components/about.component"
+import { ContactComponent } from "./components/contact.component"
+import { PrivacyPolicyComponent } from "./components/privacy-policy.component"
 
 export const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -32,5 +35,8 @@ export const routes: Routes = [
   { path: "admin", component: AdminPanelComponent },
   { path: "ui-demo", component: UiDemoComponent }, 
   { path: "settings", component: SettingsComponent },
-  { path: "typography", component: TypographyComponent }
+  { path: "typography", component: TypographyComponent },
+  { path: "about", component: AboutComponent },
+  { path: "contact", component: ContactComponent },
+  { path: "privacy", component: PrivacyPolicyComponent }
 ]
