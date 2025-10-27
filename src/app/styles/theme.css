@@ -73,9 +73,17 @@ body.grayscale-theme {
 }
 
 /* Filtro global de escala de grises para el tema grayscale */
-html.grayscale-theme {
-  -webkit-filter: grayscale(100%) !important;
-  filter: grayscale(100%) !important;
+/* Aplicar solo al contenido principal, no a header y footer */
+body.grayscale-theme *:not(.header):not(.header *):not(.footer):not(.footer *) {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+/* Asegurar que header y footer mantengan sus colores en grayscale */
+body.grayscale-theme .header,
+body.grayscale-theme .footer {
+  -webkit-filter: none !important;
+  filter: none !important;
 }
 
 /* Tema claro explícito */

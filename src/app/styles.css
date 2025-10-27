@@ -4,76 +4,76 @@
 
 /* Variables de tema */
 :root {
-  /* Tema por defecto - Dark */
-  --bg-primary: #220033;
-  --bg-secondary: #440066;
-  --bg-tertiary: #330055;
-  --text-primary: #00ff99;
-  --text-secondary: #ff00ff;
-  --text-tertiary: #ffcc00;
-  --border-color: #00ffaa;
-  --accent-color: #ff0099;
-  --accent-hover: #ff00ff;
-  --header-bg: #330066;
-  --header-text: #00ffaa;
-  --card-shadow: 0 0 0 4px #ff00ff, 0 0 0 8px #330066;
-  --input-bg: #220044;
-  --footer-bg: #330066;
-  --footer-text: #00ffaa;
-  --link-color: #ff00ff;
-  --heading-color: #00ffaa;
+  /* Tema por defecto - Dark (Mejorado para mejor contraste) */
+  --bg-primary: #1a0026;
+  --bg-secondary: #2d0042;
+  --bg-tertiary: #4d006b;
+  --text-primary: #00ffaa;
+  --text-secondary: #ffaaff;
+  --text-tertiary: #ffd900;
+  --border-color: #00ffcc;
+  --accent-color: #ff33bb;
+  --accent-hover: #ff66cc;
+  --header-bg: #240033;
+  --header-text: #00ffcc;
+  --card-shadow: 0 0 0 4px #ff33bb, 0 0 0 8px #240033;
+  --input-bg: #1a0026;
+  --footer-bg: #240033;
+  --footer-text: #00ffcc;
+  --link-color: #ffaaff;
+  --heading-color: #00ffcc;
 
   /* Fuentes */
   --pixel-font: "Press Start 2P", "Courier New", monospace;
   --retro-font: "VT323", "Courier New", monospace;
 }
 
-/* Tema Dark (Purple/Green) */
+/* Tema Dark (Purple/Green) - Mejorado para mejor contraste */
 html.dark-theme,
 body.dark-theme {
-  --bg-primary: #220033;
-  --bg-secondary: #440066;
-  --bg-tertiary: #330055;
-  --text-primary: #00ff99;
-  --text-secondary: #ff00ff;
-  --text-tertiary: #ffcc00;
-  --border-color: #00ffaa;
-  --accent-color: #ff0099;
-  --accent-hover: #ff00ff;
-  --header-bg: #330066;
-  --header-text: #00ffaa;
-  --card-shadow: 0 0 0 4px #ff00ff, 0 0 0 8px #330066;
-  --input-bg: #220044;
-  --footer-bg: #330066;
-  --footer-text: #00ffaa;
-  --link-color: #ff00ff;
-  --heading-color: #00ffaa;
+  --bg-primary: #1a0026;
+  --bg-secondary: #2d0042;
+  --bg-tertiary: #4d006b;
+  --text-primary: #00ffaa;
+  --text-secondary: #ffaaff;
+  --text-tertiary: #ffd900;
+  --border-color: #00ffcc;
+  --accent-color: #ff33bb;
+  --accent-hover: #ff66cc;
+  --header-bg: #240033;
+  --header-text: #00ffcc;
+  --card-shadow: 0 0 0 4px #ff33bb, 0 0 0 8px #240033;
+  --input-bg: #1a0026;
+  --footer-bg: #240033;
+  --footer-text: #00ffcc;
+  --link-color: #ffaaff;
+  --heading-color: #00ffcc;
 
-  background-color: #220033;
-  color: #00ff99;
-}/* Tema Retro (Modern Dark) */
+  background-color: #1a0026;
+  color: #00ffaa;
+}/* Tema Retro (Modern Dark) - Mejorado para mejor contraste */
 html.retro-theme,
 body.retro-theme {
-  --bg-primary: #121212;
-  --bg-secondary: #1e1e1e;
-  --bg-tertiary: #2d2d2d;
-  --text-primary: #f5f5f7;
-  --text-secondary: #b0b0b0;
-  --text-tertiary: #808080;
-  --border-color: #444444;
-  --accent-color: #e94560;
-  --accent-hover: #ff6b8b;
-  --header-bg: #0f0f1a;
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #b8b8b8;
+  --border-color: #555555;
+  --accent-color: #ff4466;
+  --accent-hover: #ff6688;
+  --header-bg: #0d0d14;
   --header-text: #ffffff;
-  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  --input-bg: #2d2d2d;
-  --footer-bg: #0f0f1a;
-  --footer-text: #f5f5f5;
-  --link-color: #ff6b8b;
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --input-bg: #1a1a1a;
+  --footer-bg: #0d0d14;
+  --footer-text: #ffffff;
+  --link-color: #ff6688;
   --heading-color: #ffffff;
 
-  background-color: #121212;
-  color: #f5f5f7;
+  background-color: #0a0a0a;
+  color: #ffffff;
 }
 
 
@@ -592,4 +592,343 @@ svg {
   border-radius: 4px;
   font-size: 12px;
   z-index: 9999;
+}
+
+/* ===== MEJORAS DE CONTRASTE Y ACCESIBILIDAD ===== */
+
+/* Mejorar contraste de botones */
+button,
+.btn {
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  border: 2px solid currentColor;
+}
+
+/* Mejorar contraste de enlaces */
+a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Mejorar contraste de inputs */
+input,
+textarea,
+select {
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-tertiary);
+  opacity: 0.8;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+  border-color: var(--accent-color);
+}
+
+/* Mejorar contraste de textos secundarios */
+.text-secondary,
+.game-category,
+.meta-label {
+  font-weight: 500;
+}
+
+/* Mejorar contraste de tarjetas */
+.game-card,
+.card {
+  border: 3px solid var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+/* Mejorar sombras para mejor definición */
+.game-card:hover,
+.card:hover {
+  box-shadow: 0 0 0 3px var(--accent-color), 
+              0 0 20px rgba(var(--accent-color-rgb, 255, 51, 187), 0.3);
+}
+
+/* Mejorar contraste de precios */
+.current-price,
+.game-price {
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Estados de enfoque visibles para navegación por teclado */
+*:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+/* Mejorar contraste de badges y etiquetas */
+.badge,
+.game-badge,
+.tag {
+  font-weight: 700;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Mejorar legibilidad de textos largos */
+p,
+.description,
+.game-description {
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+}
+
+/* Mejorar contraste de iconos SVG */
+svg {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+/* Asegurar que los títulos sean siempre legibles */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+}
+
+/* ===== MODO DE ALTO CONTRASTE ===== */
+body.high-contrast {
+  /* Variables de alto contraste - Sobrescribir todas las variables CSS */
+  --bg-primary: #000000 !important;
+  --bg-secondary: #000000 !important;
+  --bg-tertiary: #1a1a1a !important;
+  --text-primary: #ffffff !important;
+  --text-secondary: #ffffff !important;
+  --text-tertiary: #ffff00 !important;
+  --border-color: #ffffff !important;
+  --accent-color: #ffff00 !important;
+  --accent-hover: #ffff00 !important;
+  --header-bg: #000000 !important;
+  --header-text: #ffffff !important;
+  --card-shadow: 0 0 0 3px #ffffff !important;
+  --input-bg: #000000 !important;
+  --footer-bg: #000000 !important;
+  --footer-text: #ffffff !important;
+  --link-color: #ffff00 !important;
+  --heading-color: #ffffff !important;
+  --pixel-font: "Press Start 2P", "Courier New", monospace !important;
+  --retro-font: "VT323", "Courier New", monospace !important;
+
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Header en modo alto contraste */
+body.high-contrast .header {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-bottom: 3px solid #ffffff !important;
+}
+
+body.high-contrast .container,
+body.high-contrast .nav-container,
+body.high-contrast .user-actions,
+body.high-contrast .nav,
+body.high-contrast .nav-list {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+body.high-contrast .header *,
+body.high-contrast .header h1,
+body.high-contrast .header h2,
+body.high-contrast .header h3,
+body.high-contrast .header a,
+body.high-contrast .header span,
+body.high-contrast .header nav,
+body.high-contrast .header .nav-list a,
+body.high-contrast .header .logo h1,
+body.high-contrast .header .user-greeting,
+body.high-contrast .header .theme-name {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+body.high-contrast .header a:hover,
+body.high-contrast .header a:focus,
+body.high-contrast .header .nav-list a:hover,
+body.high-contrast .header .nav-list a:focus {
+  color: #ffff00 !important;
+  background-color: rgba(255, 255, 0, 0.2) !important;
+}
+
+body.high-contrast .header svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  filter: none !important;
+}
+
+/* Footer en modo alto contraste */
+body.high-contrast .footer {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-top: 3px solid #ffffff !important;
+}
+
+body.high-contrast .footer-content,
+body.high-contrast .footer-grid,
+body.high-contrast .footer-section,
+body.high-contrast .footer-bottom,
+body.high-contrast .footer-legal {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+body.high-contrast .footer *,
+body.high-contrast .footer h1,
+body.high-contrast .footer h2,
+body.high-contrast .footer h3,
+body.high-contrast .footer h4,
+body.high-contrast .footer h5,
+body.high-contrast .footer h6,
+body.high-contrast .footer p,
+body.high-contrast .footer span,
+body.high-contrast .footer li,
+body.high-contrast .footer a,
+body.high-contrast .footer .footer-description,
+body.high-contrast .footer .footer-title,
+body.high-contrast .footer .footer-logo h3 {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+body.high-contrast .footer a:hover,
+body.high-contrast .footer a:focus {
+  color: #ffff00 !important;
+  text-decoration: underline !important;
+}
+
+body.high-contrast .footer svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  filter: none !important;
+}
+
+body.high-contrast .footer .social-link {
+  background-color: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+
+body.high-contrast .footer .social-link:hover {
+  background-color: #ffff00 !important;
+}
+
+body.high-contrast .footer .social-link:hover svg {
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+
+body.high-contrast .footer::before {
+  background: #ffffff !important;
+}
+
+body.high-contrast .pixel-decoration,
+body.high-contrast .pixel-decoration::after {
+  background: #ffff00 !important;
+}
+
+body.high-contrast .footer-title::after {
+  background: #ffff00 !important;
+}
+
+/* Botones en modo alto contraste */
+body.high-contrast button,
+body.high-contrast .btn {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border: 3px solid #ffff00 !important;
+}
+
+body.high-contrast button:hover,
+body.high-contrast .btn:hover {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+}
+
+/* Enlaces en modo alto contraste */
+body.high-contrast a:not(.btn) {
+  color: #ffff00 !important;
+  text-decoration: underline !important;
+}
+
+/* Inputs en modo alto contraste */
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 3px solid #ffffff !important;
+}
+
+body.high-contrast input::placeholder,
+body.high-contrast textarea::placeholder {
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+}
+
+/* Tarjetas en modo alto contraste */
+body.high-contrast .game-card,
+body.high-contrast .card {
+  background-color: #000000 !important;
+  border: 3px solid #ffffff !important;
+}
+
+/* Títulos generales en modo alto contraste */
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6 {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* Textos generales en modo alto contraste */
+body.high-contrast p,
+body.high-contrast span:not(.cart-count),
+body.high-contrast li {
+  color: #ffffff !important;
+}
+
+/* Precios en modo alto contraste */
+body.high-contrast .current-price,
+body.high-contrast .game-price {
+  color: #ffff00 !important;
+}
+
+/* SVG en modo alto contraste */
+body.high-contrast svg {
+  filter: none !important;
+}
+
+/* Asegurar que el alto contraste no se vea afectado por grayscale */
+body.high-contrast.grayscale-theme {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+body.high-contrast * {
+  filter: none !important;
+  -webkit-filter: none !important;
 }

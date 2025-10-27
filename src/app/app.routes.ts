@@ -28,10 +28,9 @@ export const routes: Routes = [
   { path: "forgot-password", component: ForgotPasswordComponent },
   { path: "verify-code", component: VerifyCodeComponent },
   { path: "reset-password/:token", component: ResetPasswordComponent },
-  { path: "reset-password", component: ResetPasswordComponent }, // Ruta alternativa para pasar token por query params
+  { path: "reset-password", component: ResetPasswordComponent }, 
   { path: "admin", component: AdminPanelComponent },
-  { path: "ui-demo", component: UiDemoComponent }, // Nueva ruta para el demo
-  // { path: "**", redirectTo: "/home" }, // Ruta para manejar rutas no encontradas
+  { path: "ui-demo", component: UiDemoComponent }, 
   { path: "settings", component: SettingsComponent },
   { path: "typography", component: TypographyComponent }
 ]

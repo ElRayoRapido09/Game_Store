@@ -63,6 +63,24 @@ export class ThemeService {
     if (html && body) {
       console.log(`ThemeService: Aplicando clase de tema a HTML y BODY: ${theme}`)
 
+      // VERIFICAR SI EL MODO DE ALTO CONTRASTE ESTÁ ACTIVO
+      const highContrastActive = body.classList.contains('high-contrast')
+      
+      if (highContrastActive) {
+        console.log('ThemeService: Modo de alto contraste activo, no se aplicarán estilos inline del tema')
+        // Solo aplicar la clase del tema pero NO los estilos inline
+        const themeClass = `${theme}-theme`
+        html.classList.remove("light-theme", "dark-theme", "retro-theme", "grayscale-theme")
+        body.classList.remove("light-theme", "dark-theme", "retro-theme", "grayscale-theme")
+        html.classList.add(themeClass)
+        body.classList.add(themeClass)
+        // Preservar la clase high-contrast
+        if (!body.classList.contains('high-contrast')) {
+          body.classList.add('high-contrast')
+        }
+        return // Salir sin aplicar estilos inline
+      }
+
       // Remover todas las clases de tema existentes
       html.classList.remove("light-theme", "dark-theme", "retro-theme", "grayscale-theme")
       body.classList.remove("light-theme", "dark-theme", "retro-theme", "grayscale-theme")
@@ -112,7 +130,11 @@ export class ThemeService {
     }
 
     // Aplicar estilos específicos con retraso para asegurar que se apliquen
-    setTimeout(() => this.applySpecificStyles(theme), 50)
+    // SOLO si no está en modo de alto contraste
+    const body2 = document.body
+    if (!body2.classList.contains('high-contrast')) {
+      setTimeout(() => this.applySpecificStyles(theme), 50)
+    }
   }
 
   // Método para alternar entre temas - ya no se usa, reemplazado por setTheme directo
@@ -143,6 +165,13 @@ export class ThemeService {
 
   private applySpecificStyles(theme: Theme): void {
     console.log("ThemeService: Aplicando estilos específicos a componentes clave")
+
+    // VERIFICAR SI EL MODO DE ALTO CONTRASTE ESTÁ ACTIVO
+    const bodyElement = document.body
+    if (bodyElement.classList.contains('high-contrast')) {
+      console.log('ThemeService: Modo de alto contraste activo, omitiendo estilos específicos')
+      return
+    }
 
     // Definir los colores para cada tema
     let themeColors: any = {}
@@ -345,5 +374,39 @@ export class ThemeService {
     console.log(`Clases en BODY: ${bodyClasses}`)
     console.log(`Estilos en BODY: ${bodyStyles}`)
     console.groupEnd()
+  }
+
+  // Método público para limpiar todos los estilos inline del tema
+  clearThemeInlineStyles(): void {
+    console.log('ThemeService: Limpiando estilos inline del tema')
+    const html = document.querySelector("html")
+    const body = document.body
+    const main = document.querySelector("main")
+
+    if (html) {
+      html.removeAttribute('style')
+    }
+    if (body) {
+      body.removeAttribute('style')
+    }
+    if (main) {
+      main.removeAttribute('style')
+    }
+
+    // Limpiar estilos de elementos específicos que el tema pudo haber modificado
+    const specificSelectors = [
+      'header', '.header',
+      'footer', '.footer',
+      '.game-card', '.card',
+      'input', 'textarea', 'select',
+      'button:not(.high-contrast-excluded)'
+    ]
+
+    specificSelectors.forEach(selector => {
+      const elements = document.querySelectorAll(selector)
+      elements.forEach(element => {
+        (element as HTMLElement).removeAttribute('style')
+      })
+    })
   }
 }
