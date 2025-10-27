@@ -38,7 +38,10 @@ import { Game } from "../models/game.model"
               <div class="gallery-item trailer-item" 
                    *ngIf="game.trailerUrl"
                    [class.active]="activeMediaIndex === -1"
-                   (click)="selectTrailer()">
+                   (click)="selectTrailer()"
+                   role="button"
+                   aria-label="Ver trailer"
+              >
                 <div class="trailer-thumb">
                   <div class="play-icon">▶️</div>
                   <div class="trailer-label">🎬 Trailer</div>
@@ -49,7 +52,10 @@ import { Game } from "../models/game.model"
               <div class="gallery-item" 
                    *ngFor="let item of game.screenShots; let i = index"
                    [class.active]="i === activeMediaIndex"
-                   (click)="selectMedia(i)">
+                   (click)="selectMedia(i)"
+                   role="button"
+                   [attr.aria-label]="'Ver captura de pantalla ' + (i + 1)"
+              >
                 <img [src]="item" [alt]="game.title + ' screenshot ' + (i + 1)">
               </div>
             </div>
@@ -109,7 +115,7 @@ import { Game } from "../models/game.model"
                 </svg>
                 Añadir al Carrito
               </button>
-              <button class="btn-buy-now">Comprar Ahora</button>
+              <button class="btn-buy-now" [attr.aria-label]="'Comprar ahora'">Comprar Ahora</button>
             </div>
           </div>
           

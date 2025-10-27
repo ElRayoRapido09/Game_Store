@@ -92,3 +92,28 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+#custom-cursor {
+  position: fixed;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(var(--cursor-offset-x, 0px), var(--cursor-offset-y, 0px));
+}
+
+#custom-cursor img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+:root {
+  --cursor-offset-x: -6px;
+  --cursor-offset-y: -2px;
+}
+
+body {
+  cursor: none;
+}

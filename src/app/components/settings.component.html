@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<p>settings works!</p>
-<button type="submit" routerLink="/typography">Cambio de tipografía</button>
-=======
+
 <div class="settings-container">
   <h2 class="settings-title">Configuraciones</h2>
   
@@ -9,10 +6,33 @@
     <app-text-size></app-text-size>
   </div>
   
-  <!-- Aquí puedes agregar más secciones de configuración -->
   <div class="settings-section">
-    <h3 class="section-title">Otras configuraciones</h3>
-    <p class="text-gray-600">Más opciones de configuración estarán disponibles próximamente.</p>
+    <app-contraste></app-contraste>
   </div>
+  
+  <div class="settings-section">
+    <button type="button" routerLink="/typography" class="btn-typography" [attr.aria-label]="'Cambio de tipografía'">
+      Cambio de tipografía
+    </button>
+  </div>
+  
+ <div class="settings-section">
+  <h2 class="settings-title-small">Configuración del Cursor</h2>
+
+  <label for="cursorSize" class="settings-label">
+    Tamaño del cursor: <span class="font-bold">{{ cursorSize }}px</span>
+  </label>
+
+  <input
+    id="cursorSize"
+    type="range"
+    min="10"
+    max="80"
+    [value]="cursorSize"
+    (input)="changeCursorSize($event)"
+    class="settings-slider"
+    aria-label="Tamaño del cursor"
+  />
 </div>
->>>>>>> be889b305fa4144a324e5cae9d364be8f8252a8d
+
+</div>

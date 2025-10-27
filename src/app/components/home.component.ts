@@ -1,7 +1,8 @@
-import { Component, type OnInit } from "@angular/core"
+import { Component, HostListener, type OnInit } from "@angular/core"
 import { CommonModule } from "@angular/common"
-import { RouterLink } from "@angular/router"
+import { RouterLink, Router } from "@angular/router" //kevin
 import  { GameService } from "../services/game.service"
+import { AuthService } from "../services/auth.service"
 import type { Game } from "../models/game.model"
 import { GameCardComponent } from "./game-card.component"
 
@@ -10,71 +11,74 @@ import { GameCardComponent } from "./game-card.component"
   standalone: true,
   imports: [CommonModule, RouterLink, GameCardComponent],
   template: `
-    <div class="home-container">
+    <main class="home-container" role="main">
       <!-- Hero Section -->
-      <section class="hero">
+      <section class="hero" aria-labelledby="hero-title">
         <div class="hero-content">
-          <h1>Descubre los mejores juegos digitales</h1>
+          <h1 id="hero-title">Descubre los mejores juegos digitales</h1>
           <p>Explora nuestra amplia selección de videojuegos para todas las plataformas</p>
           <div class="hero-buttons">
-            <a routerLink="/games" class="btn btn-primary">Explorar Juegos</a>
-            <a routerLink="/register" class="btn btn-secondary">Registrarse</a>
+            <a routerLink="/games" class="btn btn-primary" aria-label="Explorar juegos disponibles">Explorar Juegos</a>
+            <a routerLink="/register" class="btn btn-secondary" aria-label="Ir a registro de usuario">Registrarse</a>
           </div>
         </div>
       </section>
       
       <!-- Featured Games -->
-      <section class="section">
+      <section class="section" aria-labelledby="featured-title">
         <div class="section-header">
-          <h2>Juegos Destacados</h2>
-          <a routerLink="/games" class="view-all">Ver todos</a>
+          <h2 id="featured-title">Juegos Destacados</h2>
+          <a routerLink="/games" class="view-all" aria-label="Ver todos los juegos destacados">Ver todos</a>
         </div>
         
-        <div class="games-grid">
+        <div class="games-grid" role="list">
           <app-game-card 
             *ngFor="let game of featuredGames" 
-            [game]="game">
+            [game]="game"
+            role="listitem">
           </app-game-card>
         </div>
       </section>
       
       <!-- New Releases -->
-      <section class="section">
+      <section class="section" aria-labelledby="new-releases-title">
         <div class="section-header">
-          <h2>Nuevos Lanzamientos</h2>
-          <a routerLink="/games" [queryParams]="{sort: 'newest'}" class="view-all">Ver todos</a>
+          <h2 id="new-releases-title">Nuevos Lanzamientos</h2>
+          <a routerLink="/games" [queryParams]="{sort: 'newest'}" class="view-all" aria-label="Ver todos los nuevos lanzamientos">Ver todos</a>
         </div>
         
-        <div class="games-grid">
+        <div class="games-grid" role="list">
           <app-game-card 
             *ngFor="let game of newReleases" 
-            [game]="game">
+            [game]="game"
+            role="listitem">
           </app-game-card>
         </div>
       </section>
       
       <!-- Deals -->
-      <section class="section">
+      <section class="section" aria-labelledby="deals-title">
         <div class="section-header">
-          <h2>Ofertas Especiales</h2>
-          <a routerLink="/games" [queryParams]="{discount: 'true'}" class="view-all">Ver todas</a>
+          <h2 id="deals-title">Ofertas Especiales</h2>
+          <a routerLink="/games" [queryParams]="{discount: 'true'}" class="view-all" aria-label="Ver todas las ofertas especiales">Ver todas</a>
         </div>
         
-        <div class="games-grid">
+        <div class="games-grid" role="list">
           <app-game-card 
             *ngFor="let game of discountedGames" 
-            [game]="game">
+            [game]="game"
+            role="listitem">
           </app-game-card>
         </div>
       </section>
       
       <!-- Categories -->
-      <section class="section categories-section">
-        <h2>Explora por Categorías</h2>
+      <section class="section categories-section" aria-labelledby="categories-title">
+        <h2 id="categories-title">Explora por Categorías</h2>
         
-        <div class="categories-grid">
-          <div class="category-card" *ngFor="let category of categories">
-            <a routerLink="/games" [queryParams]="{category: category.name}">
+        <div class="categories-grid" role="list">
+          <div class="category-card" *ngFor="let category of categories" role="listitem">
+            <a routerLink="/games" [queryParams]="{category: category.name}" [attr.aria-label]="'Ver juegos en categoría ' + category.name">
               <div class="category-image" [style.background-image]="'url(' + category.image + ')'">
                 <div class="category-overlay"></div>
                 <h3>{{ category.name }}</h3>
@@ -85,17 +89,17 @@ import { GameCardComponent } from "./game-card.component"
       </section>
       
       <!-- Newsletter -->
-      <section class="newsletter">
+      <section class="newsletter" aria-labelledby="newsletter-title">
         <div class="newsletter-content">
-          <h2>Suscríbete a nuestro boletín</h2>
+          <h2 id="newsletter-title">Suscríbete a nuestro boletín</h2>
           <p>Recibe las últimas noticias, ofertas y lanzamientos directamente en tu correo.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="Tu correo electrónico">
-            <button class="btn btn-primary">Suscribirse</button>
-          </div>
+          <form class="newsletter-form" role="form" aria-label="Formulario de suscripción al boletín">
+            <input type="email" placeholder="Tu correo electrónico" aria-label="Ingresa tu correo electrónico">
+            <button type="submit" class="btn btn-primary" aria-label="Suscribirse al boletín">Suscribirse</button>
+          </form>
         </div>
       </section>
-    </div>
+    </main>
   `,
   styles: [
     `
@@ -573,7 +577,21 @@ export class HomeComponent implements OnInit {
     { name: "Deportes", image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop" },
   ]
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private authService: AuthService, private router: Router) {}
+
+  // kevin
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboard(event: KeyboardEvent) {
+    if (event.ctrlKey && event.key.toLowerCase() === 'l') {
+      event.preventDefault();
+      this.logout();
+    }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 
   ngOnInit(): void {
     this.gameService.getGames().subscribe((games) => {

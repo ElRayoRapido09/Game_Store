@@ -46,6 +46,46 @@ body.dark-theme {
   color: #f5f5f7;
 }
 
+/* Tema grayscale */
+html.grayscale-theme,
+body.grayscale-theme {
+  --bg-primary: #2a2a2a;
+  --bg-secondary: #333333;
+  --bg-tertiary: #404040;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #808080;
+  --border-color: #666666;
+  --accent-color: #cccccc;
+  --accent-hover: #aaaaaa;
+  --header-bg: #1a1a1a;
+  --header-text: #f0f0f0;
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --input-bg: #404040;
+  --footer-bg: #1a1a1a;
+  --footer-text: #f0f0f0;
+  --link-color: #cccccc;
+  --heading-color: #f0f0f0;
+
+  /* Aplicar directamente los estilos más importantes */
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+/* Filtro global de escala de grises para el tema grayscale */
+/* Aplicar solo al contenido principal, no a header y footer */
+body.grayscale-theme *:not(.header):not(.header *):not(.footer):not(.footer *) {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+/* Asegurar que header y footer mantengan sus colores en grayscale */
+body.grayscale-theme .header,
+body.grayscale-theme .footer {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
 /* Tema claro explícito */
 html.light-theme,
 body.light-theme {
@@ -109,6 +149,39 @@ body.dark-theme .section-header h2,
 body.dark-theme .game-details h2,
 body.dark-theme .register-header h2,
 body.dark-theme .login-header h2 {
+  color: var(--heading-color);
+}
+
+/* Estilos de texto para modo grayscale */
+body.grayscale-theme p {
+  color: var(--text-secondary);
+}
+
+body.grayscale-theme h1,
+body.grayscale-theme h2,
+body.grayscale-theme h3,
+body.grayscale-theme h4,
+body.grayscale-theme h5,
+body.grayscale-theme h6 {
+  color: var(--heading-color);
+}
+
+body.grayscale-theme a:not(.btn) {
+  color: var(--link-color);
+}
+
+body.grayscale-theme .game-category,
+body.grayscale-theme .game-description p,
+body.grayscale-theme .meta-label,
+body.grayscale-theme .detail-label {
+  color: var(--text-secondary);
+}
+
+body.grayscale-theme .game-title a,
+body.grayscale-theme .section-header h2,
+body.grayscale-theme .game-details h2,
+body.grayscale-theme .register-header h2,
+body.grayscale-theme .login-header h2 {
   color: var(--heading-color);
 }
 

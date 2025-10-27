@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from "@angular/core";
+import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { ThemeService } from "../services/theme.service";
@@ -17,8 +17,8 @@ import { FooterComponent } from "./footer.component";
   template: `
     <div class="app-container" 
          [class.dark-theme]="currentTheme === 'dark'" 
-         [class.cyberpunk-theme]="currentTheme === 'cyberpunk'"
-         [class.retro-theme]="currentTheme === 'retro'">
+         [class.retro-theme]="currentTheme === 'retro'"
+         [class.grayscale-theme]="currentTheme === 'grayscale'">
       <app-header></app-header>
       <main class="main-content">
         <router-outlet></router-outlet>
@@ -43,25 +43,25 @@ import { FooterComponent } from "./footer.component";
     }
     
     .app-container.dark-theme {
+     background-color: #121212;
+      color: #f5f5f7;
+    }
+    
+    .app-container.retro-theme {
       background-color: #220033;
       color: #00ff99;
     }
     
-    .app-container.cyberpunk-theme {
-      background-color: #000033;
-      color: #ffcc00;
-    }
-    
-    .app-container.retro-theme {
-      background-color: #121212;
-      color: #f5f5f7;
+    .app-container.grayscale-theme {
+      background-color: #2a2a2a;
+      color: #e0e0e0;
     }
     `,
   ],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = "GameStore";
-  currentTheme: 'cyberpunk' | 'retro' | 'dark' = 'cyberpunk';
+  currentTheme: 'retro' | 'dark' | 'grayscale' = 'dark';
 
   constructor(
     private themeService: ThemeService,
@@ -79,15 +79,15 @@ export class AppComponent implements OnInit {
       
       // Aplicar tema al body del documento
       this.renderer.removeClass(document.body, "dark-theme");
-      this.renderer.removeClass(document.body, "cyberpunk-theme");
       this.renderer.removeClass(document.body, "retro-theme");
+      this.renderer.removeClass(document.body, "grayscale-theme");
       
       if (theme === "dark") {
         this.renderer.addClass(document.body, "dark-theme");
-      } else if (theme === "cyberpunk") {
-        this.renderer.addClass(document.body, "cyberpunk-theme");
       } else if (theme === "retro") {
         this.renderer.addClass(document.body, "retro-theme");
+      } else if (theme === "grayscale") {
+        this.renderer.addClass(document.body, "grayscale-theme");
       }
     });
 
@@ -96,6 +96,41 @@ export class AppComponent implements OnInit {
       this.themeService.logCurrentState();
     }, 500);
 
+    // Inicializar cursor personalizado global
+    if (!document.getElementById('custom-cursor')) {
+      const cursorDiv = document.createElement('div');
+      cursorDiv.id = 'custom-cursor';
+      cursorDiv.innerHTML = '<img id="custom-cursor-img" src="/assets/cursor.svg" alt="cursor" />';
+      document.body.appendChild(cursorDiv);
+    }
+
+    // Listener global de movimiento
+    document.body.addEventListener('mousemove', this.moveCustomCursor);
+
+    // Ocultar/mostrar cursor al salir/entrar de la ventana
+    document.addEventListener('mouseleave', () => {
+      const cursor = document.getElementById('custom-cursor');
+      if (cursor) cursor.style.display = 'none';
+    });
+
+    document.addEventListener('mouseenter', () => {
+      const cursor = document.getElementById('custom-cursor');
+      if (cursor) cursor.style.display = 'block';
+    });
+
     console.log("AppComponent: ngOnInit completado");
   }
+
+  ngOnDestroy(): void {
+    // Limpiar listeners globales
+    document.body.removeEventListener('mousemove', this.moveCustomCursor);
+  }
+
+  private moveCustomCursor = (e: MouseEvent): void => {
+    const cursor = document.getElementById('custom-cursor');
+    if (cursor) {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    }
+  };
 }

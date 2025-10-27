@@ -1,0 +1,15 @@
+<div class="contraste-control">
+  <label class="contraste-label">
+    <span>Contraste Alto</span>
+    <div class="toggle-switch">
+      <input 
+        type="checkbox" 
+        [checked]="contrasteActivo"
+        (change)="toggleContraste()"
+        id="contraste-toggle"
+        [attr.aria-label]="'Contraste alto'"
+      >
+      <span class="slider"></span>
+    </div>
+  </label>
+</div>

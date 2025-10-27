@@ -22,7 +22,7 @@ import { Cart } from "../models/cart.model";
         </div>
         
         <!-- Mobile Menu Button -->
-        <button class="mobile-menu-btn" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+        <button class="mobile-menu-btn" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen" aria-label="Abrir menú móvil"><!-- kevin -->
           <span></span>
           <span></span>
           <span></span>
@@ -51,8 +51,8 @@ import { Cart } from "../models/cart.model";
           <div class="user-actions">
             <!-- Search -->
             <div class="search">
-              <input type="text" placeholder="Buscar juegos...">
-              <button>
+              <input type="text" placeholder="Buscar juegos..." [attr.aria-label]="'Buscar juegos'">
+              <button [attr.aria-label]="'Buscar juegos'"><!-- kevin -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                 </svg>
@@ -61,7 +61,7 @@ import { Cart } from "../models/cart.model";
             
             <!-- Cart -->
             <div class="cart">
-              <a routerLink="/cart" class="cart-icon" (click)="closeMobileMenu()">
+              <a routerLink="/cart" class="cart-icon" (click)="closeMobileMenu()" [attr.aria-label]="'Ver carrito de compras'"><!-- kevin -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                 </svg>
@@ -72,7 +72,7 @@ import { Cart } from "../models/cart.model";
             <!-- Theme Selector -->
             <div class="theme-selector">
               <div class="theme-dropdown">
-                <button class="theme-selector-btn" (click)="toggleThemeMenu()" aria-label="Seleccionar tema">
+                <button class="theme-selector-btn" (click)="toggleThemeMenu()" [attr.aria-label]="'Seleccionar tema'">
                   <span class="theme-icon">{{ getCurrentThemeIcon() }}</span>
                   <span class="theme-name">{{ getCurrentThemeName() }}</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -100,7 +100,7 @@ import { Cart } from "../models/cart.model";
             
             <!-- User Menu -->
             <div class="user-menu" *ngIf="currentUser">
-              <div class="user-info" (click)="toggleUserMenu()">
+              <div class="user-info" (click)="toggleUserMenu()" role="button" [attr.aria-label]="'Menú de usuario'">
                 <span class="user-greeting">Hola, {{ currentUser.username || currentUser.username }}</span>
                 <div class="dropdown" [class.open]="isUserMenuOpen">
                   <a routerLink="/profile" (click)="closeAllMenus()">Mi Perfil</a>
@@ -589,11 +589,11 @@ import { Cart } from "../models/cart.model";
 export class HeaderComponent implements OnInit {
   currentUser: User | null = null;
   cart: Cart = { items: [], totalItems: 0, totalPrice: 0 };
-  currentTheme: 'cyberpunk' | 'retro' | 'dark' = 'cyberpunk';
+  currentTheme: 'dark' | 'retro' | 'grayscale' = 'dark';
   themes = [
-    { key: 'cyberpunk', name: 'Cyberpunk', icon: '🌆' },
-    { key: 'retro', name: 'Dark', icon: '👾' },
-    { key: 'dark', name: 'Retro', icon: '🌙' }
+    { key: 'retro', name: 'Retro', icon: '👾' },
+    { key: 'dark', name: 'Dark', icon: '🌙' },
+    { key: 'grayscale', name: 'Grayscale', icon: '⚫' }
   ];
   
   // Estados para controlar los menús desplegables
@@ -626,12 +626,12 @@ export class HeaderComponent implements OnInit {
     this.themeService.toggleTheme();
   }
 
-  setTheme(theme: 'cyberpunk' | 'retro' | 'dark'): void {
+  setTheme(theme: 'retro' | 'dark' | 'grayscale'): void {
     this.themeService.setTheme(theme);
   }
 
   onThemeSelect(themeKey: string): void {
-    if (themeKey === 'cyberpunk' || themeKey === 'retro' || themeKey === 'dark') {
+    if ( themeKey === 'retro' || themeKey === 'dark' || themeKey === 'grayscale') {
       this.setTheme(themeKey);
       this.isThemeMenuOpen = false; // Cerrar menú después de seleccionar
     }

@@ -91,91 +91,8 @@ body {
   }
 }
 
-/* Variables de tema - Por defecto Cyberpunk */
+/* Variables de tema - Por defecto Dark */
 :root {
-  --bg-primary: #000033;
-  --bg-secondary: #0000aa;
-  --bg-tertiary: #0033cc;
-  --text-primary: #ffcc00;
-  --text-secondary: #00ffff;
-  --text-tertiary: #ff00ff;
-  --border-color: #00ff00;
-  --accent-color: #ff00ff;
-  --accent-hover: #ff66ff;
-  --header-bg: #000088;
-  --header-text: #ffcc00;
-  --card-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-  --input-bg: #000055;
-  --footer-bg: #000088;
-  --footer-text: #ffcc00;
-  --link-color: #ff00ff;
-  --heading-color: #00ffff;
-  --pixel-font: 'Courier New', monospace;
-  --retro-font: 'Courier New', monospace;
-  
-  /* Variable para tamaño de texto configurable */
-  --base-font-size: 16px;
-}
-
-/* Tema Cyberpunk */
-html.cyberpunk-theme,
-body.cyberpunk-theme {
-  --bg-primary: #000033;
-  --bg-secondary: #0000aa;
-  --bg-tertiary: #0033cc;
-  --text-primary: #ffcc00;
-  --text-secondary: #00ffff;
-  --text-tertiary: #ff00ff;
-  --border-color: #00ff00;
-  --accent-color: #ff00ff;
-  --accent-hover: #ff66ff;
-  --header-bg: #000088;
-  --header-text: #ffcc00;
-  --card-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-  --input-bg: #000055;
-  --footer-bg: #000088;
-  --footer-text: #ffcc00;
-  --link-color: #ff00ff;
-  --heading-color: #00ffff;
-  --pixel-font: 'Courier New', monospace;
-  --retro-font: 'Courier New', monospace;
-
-  /* Aplicar directamente los estilos más importantes */
-  background-color: #000033;
-  color: #ffcc00;
-}
-
-/* Tema Retro */
-html.retro-theme,
-body.retro-theme {
-  --bg-primary: #121212;
-  --bg-secondary: #1e1e1e;
-  --bg-tertiary: #2d2d2d;
-  --text-primary: #f5f5f7;
-  --text-secondary: #b0b0b0;
-  --text-tertiary: #808080;
-  --border-color: #444444;
-  --accent-color: #ff6b8b;
-  --accent-hover: #ff8fa3;
-  --header-bg: #0f0f1a;
-  --header-text: #ffffff;
-  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  --input-bg: #2d2d2d;
-  --footer-bg: #0f0f1a;
-  --footer-text: #f5f5f5;
-  --link-color: #ff6b8b;
-  --heading-color: #ffffff;
-  --pixel-font: 'Courier New', monospace;
-  --retro-font: 'Courier New', monospace;
-
-  /* Aplicar directamente los estilos más importantes */
-  background-color: #121212;
-  color: #f5f5f7;
-}
-
-/* Tema oscuro */
-html.dark-theme,
-body.dark-theme {
   --bg-primary: #220033;
   --bg-secondary: #440066;
   --bg-tertiary: #660099;
@@ -195,10 +112,65 @@ body.dark-theme {
   --heading-color: #00ffaa;
   --pixel-font: 'Courier New', monospace;
   --retro-font: 'Courier New', monospace;
+  
+  /* Variable para tamaño de texto configurable */
+  --base-font-size: 16px;
+}
+
+/* Tema Retro (morado/vaporwave) - Mejorado para mejor contraste */
+html.retro-theme,
+body.retro-theme {
+  --bg-primary: #1a0026;
+  --bg-secondary: #2d0042;
+  --bg-tertiary: #4d006b;
+  --text-primary: #00ffaa;
+  --text-secondary: #ffaaff;
+  --text-tertiary: #00ffcc;
+  --border-color: #ff66cc;
+  --accent-color: #ff33bb;
+  --accent-hover: #ff66cc;
+  --header-bg: #1a0026;
+  --header-text: #00ffcc;
+  --card-shadow: 0 0 20px rgba(255, 51, 187, 0.4);
+  --input-bg: #1a0026;
+  --footer-bg: #1a0026;
+  --footer-text: #00ffcc;
+  --link-color: #ffaaff;
+  --heading-color: #00ffcc;
+  --pixel-font: 'Courier New', monospace;
+  --retro-font: 'Courier New', monospace;
 
   /* Aplicar directamente los estilos más importantes */
-  background-color: #220033;
-  color: #00ff99;
+  background-color: #1a0026;
+  color: #00ffaa;
+}
+
+/* Tema oscuro (dark/negro) - Mejorado para mejor contraste */
+html.dark-theme,
+body.dark-theme {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #b8b8b8;
+  --border-color: #555555;
+  --accent-color: #ff4466;
+  --accent-hover: #ff6688;
+  --header-bg: #0a0a0a;
+  --header-text: #ffffff;
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --input-bg: #1a1a1a;
+  --footer-bg: #0a0a0a;
+  --footer-text: #ffffff;
+  --link-color: #ff6688;
+  --heading-color: #ffffff;
+  --pixel-font: 'Courier New', monospace;
+  --retro-font: 'Courier New', monospace;
+
+  /* Aplicar directamente los estilos más importantes */
+  background-color: #0a0a0a;
+  color: #ffffff;
 }
 
 
@@ -622,8 +594,741 @@ small, .small {
   font-size: var(--base-font-size, 16px) !important;
 }
 
-/* Override específico para el tema cyberpunk */
-.cyberpunk-theme *, 
-body.cyberpunk-theme * {
-  font-size: var(--base-font-size, 16px) !important;
+/* ===== ESTILOS DE CONTRASTE ALTO ===== */
+/* NOTA: Estos estilos deben sobrescribir TODOS los demás, incluidos los inline */
+html.high-contrast,
+body.high-contrast {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  
+  /* Sobrescribir todas las variables CSS */
+  --bg-primary: #000000 !important;
+  --bg-secondary: #000000 !important;
+  --bg-tertiary: #1a1a1a !important;
+  --text-primary: #FFFFFF !important;
+  --text-secondary: #FFFFFF !important;
+  --text-tertiary: #FFFF00 !important;
+  --border-color: #FFFF00 !important;
+  --accent-color: #FFFF00 !important;
+  --accent-hover: #FFFF00 !important;
+  --header-bg: #000000 !important;
+  --header-text: #FFFFFF !important;
+  --card-shadow: 0 0 0 3px #FFFF00 !important;
+  --input-bg: #000000 !important;
+  --footer-bg: #000000 !important;
+  --footer-text: #FFFFFF !important;
+  --link-color: #00FFFF !important;
+  --heading-color: #FFFFFF !important;
+}
+
+/* Aplicar solo colores, sin bordes extra - excluye dropdowns y menús */
+body.high-contrast *:not(.theme-dropdown-menu):not(.dropdown):not(.theme-option):not(.theme-dropdown-menu *):not(.dropdown *):not(a):not(a *) {
+  background-color: transparent !important;
+  color: #FFFF00 !important;
+}
+
+/* Todos los enlaces en modo alto contraste - MÁXIMA PRIORIDAD */
+body.high-contrast a,
+body.high-contrast a span,
+body.high-contrast a div,
+body.high-contrast a p,
+body.high-contrast a *,
+body.high-contrast *:link,
+body.high-contrast *:visited {
+  color: #00FFFF !important;
+  background-color: transparent !important;
+}
+
+/* Asegurar que el contenido de los enlaces herede el color */
+body.high-contrast a > *,
+body.high-contrast footer a > *,
+body.high-contrast .footer a > * {
+  color: inherit !important;
+}
+
+/* Elementos que necesitan fondo negro */
+body.high-contrast,
+body.high-contrast main,
+body.high-contrast header,
+body.high-contrast nav,
+body.high-contrast footer,
+body.high-contrast section,
+body.high-contrast article,
+body.high-contrast aside,
+body.high-contrast .app-container,
+body.high-contrast .home-container,
+body.high-contrast .games-container,
+body.high-contrast .settings-container,
+body.high-contrast div[class*="container"],
+body.high-contrast div[class*="wrapper"] {
+  background-color: #000000 !important;
+}
+
+/* Botones en modo contraste */
+body.high-contrast button,
+body.high-contrast .btn,
+body.high-contrast a.btn,
+body.high-contrast [role="button"],
+body.high-contrast .btn-primary,
+body.high-contrast .btn-secondary,
+body.high-contrast .btn-typography {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  
+  text-decoration: none !important;
+}
+
+body.high-contrast button:hover,
+body.high-contrast .btn:hover,
+body.high-contrast a.btn:hover,
+body.high-contrast [role="button"]:hover {
+  background-color: #FFFF00 !important;
+  color: #000000 !important;
+}
+
+/* Links en modo contraste - SOLO subrayar links de navegación importantes */
+body.high-contrast a:not(.btn):not(.btn-primary):not(.btn-secondary):not(.btn-typography):not([class*="game-card"]) {
+  color: #00FFFF !important;
+  background-color: transparent !important;
+}
+
+/* Links en navegación y footer - sin subrayado innecesario */
+body.high-contrast nav a,
+body.high-contrast footer a {
+  color: #00FFFF !important;
+  text-decoration: none !important;
+}
+
+body.high-contrast nav a:hover,
+body.high-contrast footer a:hover {
+  color: #FFFFFF !important;
+  text-decoration: underline !important;
+}
+
+/* Links normales en contenido */
+body.high-contrast .view-all,
+body.high-contrast a[routerLink] {
+  color: #00FFFF !important;
+  text-decoration: none !important;
+}
+
+body.high-contrast .view-all:hover,
+body.high-contrast a[routerLink]:hover {
+  color: #FFFFFF !important;
+}
+
+/* Inputs en modo contraste */
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+body.high-contrast input::placeholder,
+body.high-contrast textarea::placeholder {
+  color: #CCCC00 !important;
+}
+
+/* Cards de juegos */
+body.high-contrast .card,
+body.high-contrast .game-card,
+body.high-contrast [class*="game-card"],
+body.high-contrast [class*="product-card"] {
+  background-color: #1a1a1a !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+/* Secciones con bordes */
+body.high-contrast .settings-section,
+body.high-contrast .contraste-control,
+body.high-contrast [class*="section"] {
+  background-color: #0a0a0a !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+/* Imágenes mantienen su visibilidad */
+body.high-contrast img {
+  opacity: 1 !important;
+  filter: contrast(1.2) brightness(0.9) !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* SVG e iconos */
+body.high-contrast svg,
+body.high-contrast i {
+  fill: #FFFF00 !important;
+  color: #FFFF00 !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Headers y títulos */
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6,
+body.high-contrast .settings-title,
+body.high-contrast .section-header h2 {
+  color: #FFFFFF !important;
+  background-color: transparent !important;
+}
+
+/* Texto normal */
+body.high-contrast p,
+body.high-contrast span:not(.theme-icon):not(.theme-name),
+body.high-contrast label,
+body.high-contrast li {
+  color: #FFFF00 !important;
+  background-color: transparent !important;
+}
+
+/* Evitar bordes en divs genéricos */
+body.high-contrast div {
+  border: none !important;
+}
+
+/* Solo los divs que son contenedores principales con bordes */
+body.high-contrast div[class*="container"],
+body.high-contrast div[class*="wrapper"],
+body.high-contrast div[class*="layout"] {
+  background-color: #000000 !important;
+}
+
+/* Hero section */
+body.high-contrast .hero {
+  background-color: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+body.high-contrast .hero-content {
+  background-color: transparent !important;
+}
+
+/* Grid de juegos */
+body.high-contrast .games-grid {
+  background-color: transparent !important;
+}
+
+/* Toggle switch */
+body.high-contrast .toggle-switch .slider {
+  background-color: #333333 !important;
+  border: 1px solid #FFFF00 !important;
+}
+
+body.high-contrast .toggle-switch input:checked + .slider {
+  background-color: #FFFF00 !important;
+}
+
+body.high-contrast .toggle-switch .slider:before {
+  background-color: #FFFFFF !important;
+}
+
+/* Header/Navbar específico */
+body.high-contrast header {
+  border-bottom: 2px solid #FFFF00 !important;
+}
+
+body.high-contrast header *,
+body.high-contrast .header *,
+body.high-contrast header h1,
+body.high-contrast .header h1,
+body.high-contrast header h2,
+body.high-contrast .header h2,
+body.high-contrast header h3,
+body.high-contrast .header h3,
+body.high-contrast header a,
+body.high-contrast .header a,
+body.high-contrast header span,
+body.high-contrast .header span,
+body.high-contrast header .logo h1,
+body.high-contrast .header .logo h1,
+body.high-contrast header nav a,
+body.high-contrast .header nav a,
+body.high-contrast header .nav-list a,
+body.high-contrast .header .nav-list a,
+body.high-contrast header .user-greeting,
+body.high-contrast .header .user-greeting,
+body.high-contrast header .theme-name,
+body.high-contrast .header .theme-name {
+  color: #FFFFFF !important;
+  background-color: transparent !important;
+  text-shadow: none !important;
+}
+
+body.high-contrast header svg,
+body.high-contrast .header svg {
+  fill: #FFFF00 !important;
+  color: #FFFF00 !important;
+}
+
+body.high-contrast header a:hover,
+body.high-contrast .header a:hover,
+body.high-contrast header nav a:hover,
+body.high-contrast .header nav a:hover {
+  color: #00FFFF !important;
+}
+
+/* Enlaces específicos del header con routerLink */
+body.high-contrast header a[routerLink],
+body.high-contrast .header a[routerLink],
+body.high-contrast header .nav-list a,
+body.high-contrast .header .nav-list a,
+body.high-contrast header .auth-buttons a,
+body.high-contrast .header .auth-buttons a,
+body.high-contrast header .btn-login,
+body.high-contrast .header .btn-login,
+body.high-contrast header .btn-register,
+body.high-contrast .header .btn-register {
+  color: #FFFFFF !important;
+  background-color: transparent !important;
+  text-shadow: none !important;
+}
+
+/* Forzar el color en cualquier elemento dentro de los enlaces del header */
+body.high-contrast header a *,
+body.high-contrast .header a *,
+body.high-contrast header .nav-list a *,
+body.high-contrast .header .nav-list a *,
+body.high-contrast header .auth-buttons a *,
+body.high-contrast .header .auth-buttons a * {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+body.high-contrast header .btn,
+body.high-contrast .header .btn {
+  border: 2px solid #FFFF00 !important;
+  color: #FFFF00 !important;
+  background-color: #000000 !important;
+}
+
+body.high-contrast header .btn:hover,
+body.high-contrast .header .btn:hover {
+  background-color: #FFFF00 !important;
+  color: #000000 !important;
+}
+
+/* Footer específico */
+body.high-contrast footer {
+  border-top: 2px solid #FFFF00 !important;
+}
+
+body.high-contrast footer *,
+body.high-contrast .footer *,
+body.high-contrast footer h1,
+body.high-contrast .footer h1,
+body.high-contrast footer h2,
+body.high-contrast .footer h2,
+body.high-contrast footer h3,
+body.high-contrast .footer h3,
+body.high-contrast footer h4,
+body.high-contrast .footer h4,
+body.high-contrast footer p,
+body.high-contrast .footer p,
+body.high-contrast footer span,
+body.high-contrast .footer span,
+body.high-contrast footer li,
+body.high-contrast .footer li,
+body.high-contrast footer .footer-description,
+body.high-contrast .footer .footer-description,
+body.high-contrast footer .footer-title,
+body.high-contrast .footer .footer-title,
+body.high-contrast footer .footer-logo h3,
+body.high-contrast .footer .footer-logo h3 {
+  color: #FFFFFF !important;
+  background-color: transparent !important;
+  text-shadow: none !important;
+}
+
+body.high-contrast footer a,
+body.high-contrast .footer a,
+body.high-contrast footer .footer-links a,
+body.high-contrast .footer .footer-links a,
+body.high-contrast footer ul a,
+body.high-contrast .footer ul a,
+body.high-contrast footer li a,
+body.high-contrast .footer li a,
+body.high-contrast footer a[routerLink],
+body.high-contrast .footer a[routerLink],
+body.high-contrast footer a[href],
+body.high-contrast .footer a[href],
+body.high-contrast footer .footer-section a,
+body.high-contrast .footer .footer-section a,
+body.high-contrast footer .footer-links li a,
+body.high-contrast .footer .footer-links li a {
+  color: #00FFFF !important;
+  background-color: transparent !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+}
+
+/* Forzar el color en cualquier elemento dentro de los enlaces del footer */
+body.high-contrast footer a *,
+body.high-contrast .footer a *,
+body.high-contrast footer .footer-links a *,
+body.high-contrast .footer .footer-links a *,
+body.high-contrast footer li a *,
+body.high-contrast .footer li a * {
+  color: #00FFFF !important;
+  background-color: transparent !important;
+}
+
+body.high-contrast footer a:hover,
+body.high-contrast .footer a:hover,
+body.high-contrast footer .footer-links a:hover,
+body.high-contrast .footer .footer-links a:hover,
+body.high-contrast footer a[routerLink]:hover,
+body.high-contrast .footer a[routerLink]:hover {
+  color: #FFFF00 !important;
+  text-decoration: underline !important;
+}
+
+body.high-contrast footer a::before,
+body.high-contrast .footer a::before,
+body.high-contrast footer .footer-links a::before,
+body.high-contrast .footer .footer-links a::before {
+  color: #00FFFF !important;
+  opacity: 1 !important;
+}
+
+/* Títulos específicos del footer */
+body.high-contrast footer .footer-title,
+body.high-contrast .footer .footer-title {
+  color: #FFFFFF !important;
+}
+
+/* Enlaces de "Mi Cuenta" y otras secciones del footer */
+body.high-contrast footer .footer-section li a,
+body.high-contrast .footer .footer-section li a {
+  color: #00FFFF !important;
+  font-family: inherit !important;
+}
+
+body.high-contrast footer svg,
+body.high-contrast .footer svg {
+  fill: #FFFF00 !important;
+  color: #FFFF00 !important;
+}
+
+body.high-contrast .footer .social-link {
+  border: 2px solid #FFFF00 !important;
+  background-color: #000000 !important;
+}
+
+body.high-contrast .footer .social-link:hover {
+  background-color: #FFFF00 !important;
+}
+
+body.high-contrast .footer .social-link:hover svg {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
+
+/* ===== DROPDOWNS Y MENÚS DESPLEGABLES ===== */
+/* Menú de temas/theme selector */
+body.high-contrast .theme-dropdown-menu,
+body.high-contrast .dropdown {
+  background-color: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+  box-shadow: 4px 4px 0 rgba(255, 255, 0, 0.3) !important;
+}
+
+/* Opciones dentro del menú de temas */
+body.high-contrast .theme-option,
+body.high-contrast .dropdown a,
+body.high-contrast .dropdown button {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border-bottom: 1px solid #FFFF00 !important;
+}
+
+body.high-contrast .theme-option:hover,
+body.high-contrast .dropdown a:hover,
+body.high-contrast .dropdown button:hover {
+  background-color: #FFFF00 !important;
+  color: #000000 !important;
+}
+
+body.high-contrast .theme-option.active {
+  background-color: #CCCC00 !important;
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+
+/* Iconos dentro de los menús */
+body.high-contrast .theme-option svg,
+body.high-contrast .theme-option span,
+body.high-contrast .dropdown svg,
+body.high-contrast .dropdown span {
+  color: inherit !important;
+  fill: inherit !important;
+}
+
+/* Menú de usuario */
+body.high-contrast .user-info .dropdown {
+  background-color: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+/* Popovers y modales */
+body.high-contrast [class*="popover"],
+body.high-contrast [class*="modal"],
+body.high-contrast [role="dialog"] {
+  background-color: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+  color: #FFFF00 !important;
+}
+
+/* Custom cursor styles */
+:root {
+  --cursor-size: 16px;
+  /* Offsets para alinear la punta del cursor visual con el puntero real */
+  --cursor-offset-x: -6px;
+  --cursor-offset-y: -2px;
+}
+
+#custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  transform: translate(var(--cursor-offset-x, 0px), var(--cursor-offset-y, 0px));
+  left: 0;
+  top: 0;
+}
+
+#custom-cursor-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Ocultar el cursor nativo en toda la app para que se vea el cursor personalizado */
+html, body, * {
+  cursor: none !important;
+}
+
+/* ===== MEJORAS DE CONTRASTE GLOBALES ===== */
+
+/* Mejorar contraste de botones en todos los temas */
+button,
+.btn,
+[role="button"] {
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+  border-width: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* Mejorar contraste de enlaces */
+a:not(.btn) {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  filter: brightness(1.2);
+}
+
+/* Mejorar contraste de inputs */
+input,
+textarea,
+select {
+  border-width: 2px;
+  font-weight: 500;
+  background-color: var(--input-bg);
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Mejorar contraste de precios y textos importantes */
+.price,
+.current-price,
+.game-price,
+.total-price {
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.5px;
+}
+
+/* Estados de enfoque visibles para accesibilidad */
+*:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Mejorar contraste de badges */
+.badge,
+.game-badge,
+.tag,
+.category-badge {
+  font-weight: 700;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.5px;
+}
+
+/* Mejorar legibilidad de textos */
+p,
+.description,
+.text-content {
+  line-height: 1.75;
+  letter-spacing: 0.3px;
+  font-weight: 400;
+}
+
+/* Mejorar contraste de títulos */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Mejorar contraste de iconos */
+svg {
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.8));
+}
+
+/* Mejorar contraste de tarjetas */
+.card,
+.game-card {
+  border-width: 3px;
+  box-shadow: var(--card-shadow), 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover,
+.game-card:hover {
+  box-shadow: 0 0 0 3px var(--accent-color), 
+              0 0 25px rgba(0, 0, 0, 0.6),
+              0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Mejorar contraste de navegación */
+nav a,
+.nav-link {
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.5px;
+}
+
+nav a:hover,
+nav a.active,
+.nav-link:hover,
+.nav-link.active {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+/* Mejorar contraste de alerts y mensajes */
+.alert,
+.message,
+.notification {
+  border: 2px solid currentColor;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Mejorar contraste de tablas */
+table th,
+table td {
+  border: 2px solid var(--border-color);
+  font-weight: 500;
+}
+
+table th {
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Mejorar contraste de selectores de categorías */
+.category,
+.filter-option {
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Mejorar contraste de ratings/estrellas */
+.rating,
+.stars,
+.rating-value {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+  font-weight: 600;
+}
+
+/* ===== REGLAS FINALES DE ALTO CONTRASTE (Máxima prioridad) ===== */
+/* Estas reglas deben estar al final para tener máxima especificidad */
+
+/* FOOTER: Forzar color de enlaces y su contenido */
+body.high-contrast app-footer a,
+body.high-contrast app-footer footer a,
+body.high-contrast app-footer .footer a,
+body.high-contrast app-footer .footer-links a,
+body.high-contrast app-footer li a,
+body.high-contrast app-footer ul li a,
+body.high-contrast app-footer [routerLink],
+body.high-contrast footer a,
+body.high-contrast footer .footer-links a,
+body.high-contrast footer li a,
+body.high-contrast footer ul li a {
+  color: #00FFFF !important;
+  text-shadow: none !important;
+}
+
+/* Forzar color del texto DENTRO de los enlaces del footer */
+body.high-contrast app-footer a *,
+body.high-contrast app-footer footer a *,
+body.high-contrast app-footer .footer a *,
+body.high-contrast app-footer .footer-links a *,
+body.high-contrast footer a *,
+body.high-contrast footer .footer-links a *,
+body.high-contrast footer li a *,
+body.high-contrast footer ul li a * {
+  color: inherit !important;
+}
+
+/* HEADER: Forzar color de texto y enlaces */
+body.high-contrast app-header a,
+body.high-contrast app-header header a,
+body.high-contrast app-header .header a,
+body.high-contrast app-header nav a,
+body.high-contrast app-header .nav-list a,
+body.high-contrast app-header h1,
+body.high-contrast app-header span:not(.cart-count) {
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+}
+
+/* Header: botones específicos */
+body.high-contrast app-header .btn-login,
+body.high-contrast app-header .btn-register {
+  color: #FFFF00 !important;
+  border-color: #FFFF00 !important;
 }
