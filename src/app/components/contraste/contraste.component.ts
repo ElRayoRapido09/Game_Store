@@ -107,6 +107,7 @@ export class ContrasteComponent implements OnInit {
     const html = document.querySelector('html');
     const body = document.body;
     
+    // 1. Remover la clase high-contrast PRIMERO
     if (html) {
       html.classList.remove('high-contrast');
       html.removeAttribute('style');
@@ -114,7 +115,7 @@ export class ContrasteComponent implements OnInit {
     body.classList.remove('high-contrast');
     body.removeAttribute('style');
     
-    // Limpiar estilos inline de elementos principales
+    // 2. Limpiar estilos inline de elementos principales
     const main = document.querySelector('main');
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
@@ -123,14 +124,31 @@ export class ContrasteComponent implements OnInit {
     if (header) header.removeAttribute('style');
     if (footer) footer.removeAttribute('style');
     
-    // Limpiar estilos inline de TODOS los elementos
+    // 3. Forzar repaint inmediato después de remover la clase
+    if (body) {
+      body.style.display = 'none';
+      void body.offsetHeight; // Forzar reflow
+      body.style.display = '';
+    }
+    
+    // 4. Limpiar estilos inline de TODOS los elementos
     const allElements = document.querySelectorAll('*');
     allElements.forEach(element => {
       const htmlElement = element as HTMLElement;
       if (htmlElement.style && htmlElement.hasAttribute('style')) {
-        // Solo limpiar propiedades de color que pudimos haber aplicado
+        // Limpiar propiedades de color que pudimos haber aplicado
         htmlElement.style.removeProperty('color');
         htmlElement.style.removeProperty('background-color');
+        
+        // Limpiar propiedades de borde que pudimos haber aplicado
+        htmlElement.style.removeProperty('border');
+        htmlElement.style.removeProperty('border-color');
+        htmlElement.style.removeProperty('border-width');
+        htmlElement.style.removeProperty('border-style');
+        htmlElement.style.removeProperty('border-top');
+        htmlElement.style.removeProperty('border-bottom');
+        htmlElement.style.removeProperty('border-left');
+        htmlElement.style.removeProperty('border-right');
         
         // Si el elemento no tiene más estilos, remover el atributo
         if (htmlElement.style.length === 0) {
@@ -139,12 +157,21 @@ export class ContrasteComponent implements OnInit {
       }
     });
     
-    // Re-aplicar el tema actual después de quitar el alto contraste
+    // 5. Re-aplicar el tema actual después de quitar el alto contraste
     this.themeService.currentTheme$.subscribe(theme => {
       setTimeout(() => {
         this.themeService.setTheme(theme);
       }, 10);
     }).unsubscribe();
+    
+    // 6. Forzar otro repaint después de limpiar estilos
+    requestAnimationFrame(() => {
+      if (body) {
+        body.style.display = 'none';
+        void body.offsetHeight; // Forzar reflow
+        body.style.display = '';
+      }
+    });
   }
 
   private aplicarColoresAltoContraste() {

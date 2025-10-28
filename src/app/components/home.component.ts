@@ -110,7 +110,7 @@ import { GameCardComponent } from "./game-card.component"
     /* Hero Section */
     .hero {
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
-                url('/asset/Wallpaper.png') no-repeat center center;
+                url('/asset/Wallpaper.web') no-repeat center center;
       background-size: cover;
       color: white;
       padding: 120px 20px;
