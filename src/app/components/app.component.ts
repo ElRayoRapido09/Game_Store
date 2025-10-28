@@ -61,7 +61,7 @@ import { FooterComponent } from "./footer.component";
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = "GameStore";
-  currentTheme: 'retro' | 'dark' | 'grayscale' = 'dark';
+  currentTheme: 'retro' | 'dark' | 'grayscale' = 'retro';
 
   constructor(
     private themeService: ThemeService,

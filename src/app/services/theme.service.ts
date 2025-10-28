@@ -27,7 +27,7 @@ export class ThemeService {
     }
 
     console.log("ThemeService: No hay tema guardado, usando tema por defecto")
-    return "dark"
+    return "retro"
   }
 
   private initTheme(): void {

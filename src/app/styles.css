@@ -4,31 +4,31 @@
 
 /* Variables de tema */
 :root {
-  /* Tema por defecto - Dark (Mejorado para mejor contraste) */
-  --bg-primary: #1a0026;
-  --bg-secondary: #2d0042;
-  --bg-tertiary: #4d006b;
-  --text-primary: #00ffaa;
-  --text-secondary: #ffaaff;
-  --text-tertiary: #ffd900;
-  --border-color: #00ffcc;
-  --accent-color: #ff33bb;
-  --accent-hover: #ff66cc;
-  --header-bg: #240033;
-  --header-text: #00ffcc;
-  --card-shadow: 0 0 0 4px #ff33bb, 0 0 0 8px #240033;
-  --input-bg: #1a0026;
-  --footer-bg: #240033;
-  --footer-text: #00ffcc;
-  --link-color: #ffaaff;
-  --heading-color: #00ffcc;
+  /* Tema por defecto - Retro (Modern Dark) */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #b8b8b8;
+  --border-color: #555555;
+  --accent-color: #ff4466;
+  --accent-hover: #ff6688;
+  --header-bg: #0d0d14;
+  --header-text: #ffffff;
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --input-bg: #1a1a1a;
+  --footer-bg: #0d0d14;
+  --footer-text: #ffffff;
+  --link-color: #ff6688;
+  --heading-color: #ffffff;
 
   /* Fuentes */
   --pixel-font: "Press Start 2P", "Courier New", monospace;
   --retro-font: "VT323", "Courier New", monospace;
 }
 
-/* Tema Dark (Purple/Green) - Mejorado para mejor contraste */
+/* Tema Dark (Purple/Green) */
 html.dark-theme,
 body.dark-theme {
   --bg-primary: #1a0026;
@@ -51,7 +51,9 @@ body.dark-theme {
 
   background-color: #1a0026;
   color: #00ffaa;
-}/* Tema Retro (Modern Dark) - Mejorado para mejor contraste */
+}
+
+/* Tema Retro (Modern Dark) */
 html.retro-theme,
 body.retro-theme {
   --bg-primary: #0a0a0a;
@@ -581,18 +583,7 @@ svg {
   filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
 }
 
-/* Estilos de depuración */
-.debug-theme-info {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  z-index: 9999;
-}
+
 
 /* ===== MEJORAS DE CONTRASTE Y ACCESIBILIDAD ===== */
 
@@ -727,6 +718,17 @@ body.high-contrast {
 
   background-color: #000000 !important;
   color: #ffffff !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Eliminar bordes del html en alto contraste */
+html.high-contrast {
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  outline: none !important;
 }
 
 /* Header en modo alto contraste */
@@ -736,6 +738,18 @@ body.high-contrast .header {
   background-image: none !important;
   color: #ffffff !important;
   border-bottom: 3px solid #ffffff !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  margin-top: 0 !important;
+  box-shadow: none !important;
+}
+
+body.high-contrast .header::before,
+body.high-contrast .header::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
 }
 
 body.high-contrast .container,
@@ -747,7 +761,11 @@ body.high-contrast .nav-list {
   background-color: transparent !important;
 }
 
-body.high-contrast .header *,
+body.high-contrast .header .logo h1,
+body.high-contrast .header .logo a {
+  color: #ffffff !important;
+}
+
 body.high-contrast .header h1,
 body.high-contrast .header h2,
 body.high-contrast .header h3,
@@ -774,6 +792,96 @@ body.high-contrast .header svg {
   color: #ffffff !important;
   fill: #ffffff !important;
   filter: none !important;
+}
+
+/* Botón de menú móvil en modo alto contraste */
+body.high-contrast .header .mobile-menu-btn,
+body.high-contrast .mobile-menu-btn {
+  background: transparent !important;
+  border: 3px solid #ffffff !important;
+  padding: 8px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+  z-index: 9999 !important;
+}
+
+body.high-contrast .header .mobile-menu-btn span,
+body.high-contrast .mobile-menu-btn span {
+  background-color: #ffffff !important;
+  height: 3px !important;
+  width: 25px !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.high-contrast .header .mobile-menu-btn:hover,
+body.high-contrast .mobile-menu-btn:hover {
+  background-color: rgba(255, 255, 0, 0.2) !important;
+  border-color: #ffff00 !important;
+}
+
+body.high-contrast .header .mobile-menu-btn:hover span,
+body.high-contrast .mobile-menu-btn:hover span {
+  background-color: #ffff00 !important;
+}
+
+/* Estado activo del botón móvil en alto contraste */
+body.high-contrast .header .mobile-menu-btn.active span,
+body.high-contrast .mobile-menu-btn.active span {
+  background-color: #ffff00 !important;
+}
+
+/* Navegación móvil en modo alto contraste */
+body.high-contrast .nav-container,
+body.high-contrast .header .nav-container {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+body.high-contrast .nav-container.mobile-open,
+body.high-contrast .header .nav-container.mobile-open {
+  background-color: #000000 !important;
+  border: 3px solid #ffffff !important;
+  border-top: 3px solid #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.high-contrast .nav-container a,
+body.high-contrast .nav-list a,
+body.high-contrast .user-actions a,
+body.high-contrast .user-actions button,
+body.high-contrast .header .nav-container a,
+body.high-contrast .header .nav-list a {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  border-color: #ffffff !important;
+}
+
+body.high-contrast .search input,
+body.high-contrast .header .search input {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 3px solid #ffffff !important;
+}
+
+body.high-contrast .search button svg,
+body.high-contrast .header .search button svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Asegurar que todos los elementos del menú móvil sean visibles */
+@media (max-width: 768px) {
+  body.high-contrast .mobile-menu-btn {
+    display: flex !important;
+  }
+  
+  body.high-contrast .mobile-menu-btn span {
+    background-color: #ffffff !important;
+  }
 }
 
 /* Footer en modo alto contraste */
@@ -922,12 +1030,8 @@ body.high-contrast svg {
   filter: none !important;
 }
 
-/* Asegurar que el alto contraste no se vea afectado por grayscale */
-body.high-contrast.grayscale-theme {
-  filter: none !important;
-  -webkit-filter: none !important;
-}
-
+/* Asegurar que el alto contraste no se vea afectado por otros filtros */
+body.high-contrast,
 body.high-contrast * {
   filter: none !important;
   -webkit-filter: none !important;

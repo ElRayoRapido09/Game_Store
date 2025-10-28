@@ -583,6 +583,294 @@ import { Cart } from "../models/cart.model";
         min-width: auto;
       }
     }
+
+    /* ===== MODO DE ALTO CONTRASTE ===== */
+    /* Ocultar botón móvil en escritorio incluso con alto contraste */
+    @media (min-width: 769px) {
+      :host-context(body.high-contrast) .mobile-menu-btn {
+        display: none !important;
+      }
+    }
+
+    :host-context(body.high-contrast) .mobile-menu-btn {
+      background: transparent !important;
+      border: 3px solid #ffffff !important;
+      padding: 8px !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    :host-context(body.high-contrast) .mobile-menu-btn span {
+      background-color: #ffffff !important;
+      background: #ffffff !important;
+      height: 3px !important;
+      width: 25px !important;
+      min-width: 25px !important;
+      min-height: 3px !important;
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      border: none !important;
+      box-shadow: none !important;
+      content: '' !important;
+      position: relative !important;
+    }
+
+    :host-context(body.high-contrast) .mobile-menu-btn span::before {
+      content: '' !important;
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: #ffffff !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+    }
+
+    :host-context(body.high-contrast) .mobile-menu-btn span:nth-child(1),
+    :host-context(body.high-contrast) .mobile-menu-btn span:nth-child(2),
+    :host-context(body.high-contrast) .mobile-menu-btn span:nth-child(3) {
+      background-color: #ffffff !important;
+      background: #ffffff !important;
+      opacity: 1 !important;
+      border-top: 3px solid #ffffff !important;
+      border-bottom: none !important;
+      border-left: none !important;
+      border-right: none !important;
+      height: 3px !important;
+      line-height: 3px !important;
+    }
+
+    :host-context(body.high-contrast) .mobile-menu-btn:hover {
+      border-color: #ffff00 !important;
+      background-color: rgba(255, 255, 0, 0.2) !important;
+    }
+
+    :host-context(body.high-contrast) .mobile-menu-btn:hover span {
+      background-color: #ffff00 !important;
+    }
+
+    :host-context(body.high-contrast) .mobile-menu-btn.active span {
+      background-color: #ffff00 !important;
+      background: #ffff00 !important;
+      opacity: 1 !important;
+    }
+
+    :host-context(body.high-contrast) .mobile-menu-btn.active span:nth-child(1),
+    :host-context(body.high-contrast) .mobile-menu-btn.active span:nth-child(2),
+    :host-context(body.high-contrast) .mobile-menu-btn.active span:nth-child(3) {
+      background-color: #ffff00 !important;
+      background: #ffff00 !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    :host-context(body.high-contrast) .header {
+      background-color: #000000 !important;
+      border-bottom: 3px solid #ffffff !important;
+      border-top: none !important;
+      box-shadow: none !important;
+    }
+
+    :host-context(body.high-contrast) .nav-container {
+      background-color: #000000 !important;
+      border: none !important;
+    }
+
+    :host-context(body.high-contrast) .nav-container.mobile-open {
+      background-color: #000000 !important;
+      background: #000000 !important;
+      border: 3px solid #ffffff !important;
+      border-top: 3px solid #ffffff !important;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3) !important;
+    }
+
+    :host-context(body.high-contrast) .nav,
+    :host-context(body.high-contrast) .user-actions {
+      background-color: #000000 !important;
+      background: #000000 !important;
+    }
+
+    :host-context(body.high-contrast) .nav-list {
+      background-color: #000000 !important;
+    }
+
+    :host-context(body.high-contrast) .nav-list li {
+      background-color: #000000 !important;
+      border-bottom: 1px solid #ffffff !important;
+    }
+
+    :host-context(body.high-contrast) .nav-list a,
+    :host-context(body.high-contrast) .user-actions a,
+    :host-context(body.high-contrast) .user-actions button {
+      color: #ffffff !important;
+      background-color: #000000 !important;
+      text-shadow: none !important;
+    }
+
+    :host-context(body.high-contrast) .nav-list a:hover,
+    :host-context(body.high-contrast) .user-actions a:hover {
+      color: #ffff00 !important;
+      background-color: rgba(255, 255, 0, 0.2) !important;
+    }
+
+    :host-context(body.high-contrast) .search {
+      background-color: #000000 !important;
+    }
+
+    :host-context(body.high-contrast) .search input {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      border: 2px solid #ffffff !important;
+    }
+
+    :host-context(body.high-contrast) .search button {
+      background-color: #000000 !important;
+      border: 2px solid #ffffff !important;
+    }
+
+    :host-context(body.high-contrast) .search button svg {
+      color: #ffffff !important;
+      fill: #ffffff !important;
+    }
+
+    :host-context(body.high-contrast) .btn,
+    :host-context(body.high-contrast) .btn-login,
+    :host-context(body.high-contrast) .btn-register {
+      background-color: #000000 !important;
+      color: #ffff00 !important;
+      border: 3px solid #ffff00 !important;
+    }
+
+    :host-context(body.high-contrast) .btn:hover,
+    :host-context(body.high-contrast) .btn-login:hover,
+    :host-context(body.high-contrast) .btn-register:hover {
+      background-color: #ffff00 !important;
+      color: #000000 !important;
+    }
+
+    :host-context(body.high-contrast) .dropdown {
+      background-color: #000000 !important;
+      border: 3px solid #ffffff !important;
+    }
+
+    :host-context(body.high-contrast) .dropdown a {
+      color: #ffffff !important;
+      background-color: #000000 !important;
+    }
+
+    :host-context(body.high-contrast) .dropdown a:hover {
+      color: #ffff00 !important;
+      background-color: rgba(255, 255, 0, 0.2) !important;
+    }
+
+    :host-context(body.high-contrast) .theme-dropdown-menu {
+      background-color: #000000 !important;
+      border: 3px solid #ffffff !important;
+    }
+
+    :host-context(body.high-contrast) .theme-option {
+      color: #ffffff !important;
+      background-color: #000000 !important;
+    }
+
+    :host-context(body.high-contrast) .theme-option:hover,
+    :host-context(body.high-contrast) .theme-option.active {
+      color: #ffff00 !important;
+      background-color: rgba(255, 255, 0, 0.2) !important;
+    }
+
+    :host-context(body.high-contrast) .cart-icon svg {
+      color: #ffffff !important;
+      fill: #ffffff !important;
+    }
+
+    :host-context(body.high-contrast) .cart-count {
+      background-color: #ffff00 !important;
+      color: #000000 !important;
+      border: 2px solid #ffffff !important;
+    }
+
+    :host-context(body.high-contrast) .logo h1,
+    :host-context(body.high-contrast) .nav-list a,
+    :host-context(body.high-contrast) a {
+      color: #ffffff !important;
+      text-shadow: none !important;
+    }
+
+    :host-context(body.high-contrast) .nav-list a:hover,
+    :host-context(body.high-contrast) a:hover {
+      color: #ffff00 !important;
+    }
+
+    @media (max-width: 768px) {
+      :host-context(body.high-contrast) .mobile-menu-btn {
+        display: flex !important;
+        border: 3px solid #ffffff !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+      }
+
+      :host-context(body.high-contrast) .mobile-menu-btn span {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        height: 3px !important;
+        width: 25px !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      :host-context(body.high-contrast) .mobile-menu-btn span:nth-child(1),
+      :host-context(body.high-contrast) .mobile-menu-btn span:nth-child(2),
+      :host-context(body.high-contrast) .mobile-menu-btn span:nth-child(3) {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        border-top: 3px solid #ffffff !important;
+        height: 3px !important;
+        min-height: 3px !important;
+      }
+
+      /* Fondo del menú móvil desplegado */
+      :host-context(body.high-contrast) .nav-container {
+        background-color: #000000 !important;
+        background: #000000 !important;
+      }
+
+      :host-context(body.high-contrast) .nav-container.mobile-open {
+        background-color: #000000 !important;
+        background: #000000 !important;
+        border: 3px solid #ffffff !important;
+        border-top: 3px solid #ffffff !important;
+      }
+
+      :host-context(body.high-contrast) .nav-container.mobile-open::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: #000000 !important;
+        z-index: -1 !important;
+      }
+
+      :host-context(body.high-contrast) .nav,
+      :host-context(body.high-contrast) .user-actions,
+      :host-context(body.high-contrast) .search,
+      :host-context(body.high-contrast) .nav-list,
+      :host-context(body.high-contrast) .auth-buttons {
+        background-color: #000000 !important;
+        background: #000000 !important;
+      }
+
+      :host-context(body.high-contrast) .nav-list a,
+      :host-context(body.high-contrast) .user-actions *,
+      :host-context(body.high-contrast) .theme-selector-btn {
+        color: #ffffff !important;
+        text-shadow: none !important;
+      }
+    }
     `
   ]
 })
