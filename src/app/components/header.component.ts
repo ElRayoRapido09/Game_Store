@@ -36,7 +36,7 @@ import { Cart } from "../models/cart.model";
               <li><a routerLink="/home" routerLinkActive="active" (click)="closeMobileMenu()">Inicio</a></li>
               <li><a routerLink="/games" routerLinkActive="active" (click)="closeMobileMenu()">Juegos</a></li>
               <li class="categories">
-                <a (click)="toggleCategoriesMenu()">Categorías</a>
+                <a href="#" (click)="toggleCategoriesMenu(); $event.preventDefault()" role="button" aria-haspopup="true" [attr.aria-expanded]="isCategoriesOpen">Categorías</a>
                 <div class="dropdown" [class.open]="isCategoriesOpen">
                   <a routerLink="/games" [queryParams]="{category: 'RPG'}" (click)="closeAllMenus()">RPG</a>
                   <a routerLink="/games" [queryParams]="{category: 'Acción/Aventura'}" (click)="closeAllMenus()">Acción/Aventura</a>

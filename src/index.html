@@ -165,6 +165,54 @@
     }
   </style>
   
+  <!-- Structured Data (Schema.org JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "GameStore",
+    "alternateName": "Game Store - Tienda de Videojuegos",
+    "url": "https://gamestore.com",
+    "description": "Descubre los mejores videojuegos retro y modernos en GameStore. Compra juegos clásicos y nuevos lanzamientos con envío rápido y precios increíbles.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://gamestore.com/games?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "GameStore",
+    "image": "https://gamestore.com/assets/og-image.jpg",
+    "description": "Tu tienda de videojuegos retro y modernos con los mejores precios",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "MX"
+    },
+    "priceRange": "$$",
+    "telephone": "+52-555-1234",
+    "url": "https://gamestore.com"
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GameStore",
+    "url": "https://gamestore.com",
+    "logo": "https://gamestore.com/icon.png",
+    "sameAs": [
+      "https://twitter.com/gamestore",
+      "https://facebook.com/gamestore"
+    ]
+  }
+  </script>
+  
   <!-- Load PayPal SDK asynchronously -->
   <script src="https://www.paypal.com/sdk/js?client-id=AZjIdAwwDYaEWYersqOVudynQvixRr4Ybdw3kCsnnwT-xzKq5ShBmYYuU9ckBa1a3vJeK5myMAJIC-0H&currency=MXN&components=buttons" async defer></script>
 </head>

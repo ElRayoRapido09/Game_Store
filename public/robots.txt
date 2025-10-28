@@ -1,0 +1,13 @@
+# robots.txt for GameStore
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private pages
+Disallow: /admin
+Disallow: /checkout
+Disallow: /cart
+
+# Sitemap location
+Sitemap: https://gamestore.com/sitemap.xml
