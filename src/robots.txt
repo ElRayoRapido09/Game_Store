@@ -1,0 +1,20 @@
+# robots.txt for GameStore
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /checkout
+Disallow: /cart
+
+# Sitemap
+Sitemap: https://gamestore.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Allow Google and Bing specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

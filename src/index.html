@@ -1,11 +1,57 @@
 <!doctype html>
-<html lang="en" class="dark-theme">
+<html lang="es" class="dark-theme">
 <head>
   <meta charset="utf-8">
-  <title>GameStore</title>
+  <title>GameStore - Tu Tienda de Videojuegos Retro y Modernos</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Descubre los mejores videojuegos retro y modernos en GameStore. Compra juegos clásicos y nuevos lanzamientos con envío rápido y precios increíbles.">
+  <meta name="keywords" content="videojuegos, tienda de juegos, juegos retro, juegos modernos, comprar videojuegos, game store, gaming">
+  <meta name="author" content="GameStore">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="Spanish">
+  <meta name="revisit-after" content="7 days">
+  <meta name="theme-color" content="#220033">
+  
+  <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GameStore - Tu Tienda de Videojuegos">
+  <meta property="og:description" content="Descubre los mejores videojuegos retro y modernos. Compra juegos clásicos y nuevos lanzamientos con envío rápido.">
+  <meta property="og:url" content="https://gamestore.com">
+  <meta property="og:site_name" content="GameStore">
+  <meta property="og:image" content="https://gamestore.com/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_ES">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GameStore - Tu Tienda de Videojuegos">
+  <meta name="twitter:description" content="Descubre los mejores videojuegos retro y modernos. Compra juegos clásicos y nuevos lanzamientos.">
+  <meta name="twitter:image" content="https://gamestore.com/assets/twitter-card.jpg">
+  <meta name="twitter:site" content="@gamestore">
+  <meta name="twitter:creator" content="@gamestore">
+  
+  <!-- Apple Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="GameStore">
+  
+  <!-- Microsoft Meta Tags -->
+  <meta name="msapplication-TileColor" content="#220033">
+  <meta name="msapplication-config" content="browserconfig.xml">
+  
+  <!-- Favicons and Icons -->
   <link rel="icon" type="image/x-icon" href="icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://gamestore.com">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   
   <!-- Estilos inline para asegurar que el tema se aplique correctamente -->
@@ -297,6 +343,58 @@
         }, 500);
       }
     });
+  </script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then((registration) => {
+            console.log('Service Worker registrado exitosamente:', registration.scope);
+            
+            // Check for updates
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New service worker available, show update notification
+                  console.log('Nueva versión disponible. Recarga la página para actualizar.');
+                }
+              });
+            });
+          })
+          .catch((error) => {
+            console.log('Error al registrar Service Worker:', error);
+          });
+      });
+    }
+    
+    // Structured Data (JSON-LD) for SEO
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "GameStore",
+      "description": "Tu tienda online de videojuegos retro y modernos",
+      "url": "https://gamestore.com",
+      "logo": "https://gamestore.com/icon.png",
+      "image": "https://gamestore.com/assets/og-image.jpg",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ES"
+      },
+      "sameAs": [
+        "https://www.facebook.com/gamestore",
+        "https://www.twitter.com/gamestore",
+        "https://www.instagram.com/gamestore"
+      ]
+    };
+    
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
   </script>
 </body>
 </html>
