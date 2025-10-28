@@ -172,25 +172,22 @@ export class CheckoutComponent implements OnInit {
     }
 
     paypal.Buttons({
-      createOrder: (data: any, actions: any) => {
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              value: this.orderSummary?.total?.toFixed(2) || '0.00'
-            }
-          }]
-        });
-      },
-      onApprove: (data: any, actions: any) => {
-        return actions.order.capture().then((details: any) => {
-          this.handlePayPalSuccess(details);
-        });
-      },
-      onError: (err: any) => {
-        console.error('Error PayPal:', err);
-        alert('Error en el pago con PayPal');
-      }
-    }).render('#paypal-button-container');
+  createOrder: function(data: any, actions: any) {
+    return actions.order.create({
+      purchase_units: [{
+        amount: {
+          value: '100.00',
+          currency_code: 'MXN'
+        }
+      }]
+    });
+  },
+  onApprove: function(data: any, actions: any) {
+    return actions.order.capture().then(function(details: any) {
+      console.log('Pago completado:', details);
+    });
+  }
+}).render('#paypal-button-container');
   }
 
   handlePayPalSuccess(details: any) {

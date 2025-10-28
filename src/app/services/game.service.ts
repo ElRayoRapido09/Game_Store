@@ -123,7 +123,7 @@ export class GameService {
         title: "Cyberpunk 2077",
         description: "Cyberpunk 2077 es un RPG de aventura y acción de mundo abierto ambientado en el futuro sombrío de Night City.",
         price: 59.99,
-        imageUrl: "/asset/cyber.png",
+        imageUrl: "/asset/cyber.WebP",
         screenShots: [
           "https://via.placeholder.com/800x450/00FFFF/000000?text=Cyberpunk+Screenshot+1",
           "https://via.placeholder.com/800x450/FF00FF/000000?text=Cyberpunk+Screenshot+2",
@@ -150,7 +150,7 @@ export class GameService {
         title: "The Last of Us Part II",
         description: "Cinco años después de su peligroso viaje a través de los Estados Unidos, Ellie y Joel se han establecido en Jackson, Wyoming.",
         price: 49.99,
-        imageUrl: "/asset/us.jpg",
+        imageUrl: "/asset/us.WebP",
         screenShots: [
           "https://via.placeholder.com/800x450/8B4513/FFFFFF?text=The+Last+of+Us+Screenshot+1",
           "https://via.placeholder.com/800x450/654321/FFFFFF?text=The+Last+of+Us+Screenshot+2", 
@@ -170,7 +170,7 @@ export class GameService {
         title: "FIFA 23",
         description: "FIFA 23 nos acerca al mayor juego del mundo con avances tecnológicos que aumentan el realismo.",
         price: 39.99,
-        imageUrl: "/asset/fifa23.png",
+        imageUrl: "/asset/fifa23.WebP",
         screenShots: [
           "https://via.placeholder.com/800x450/228B22/FFFFFF?text=FIFA+23+Screenshot+1",
           "https://via.placeholder.com/800x450/32CD32/FFFFFF?text=FIFA+23+Screenshot+2",
@@ -197,7 +197,7 @@ export class GameService {
         title: "Elden Ring",
         description: "Elden Ring es un RPG de acción desarrollado por FromSoftware y publicado por Bandai Namco Entertainment.",
         price: 59.99,
-        imageUrl: "/asset/elden.png",
+        imageUrl: "/asset/elden.WebP",
         screenShots: [
           "https://via.placeholder.com/800x450/8B4513/FFFFFF?text=Elden+Ring+Screenshot+1",
           "https://via.placeholder.com/800x450/D2691E/FFFFFF?text=Elden+Ring+Screenshot+2",
@@ -217,7 +217,7 @@ export class GameService {
         title: "Call of Duty: Modern Warfare II",
         description: "Call of Duty: Modern Warfare II es un videojuego de disparos en primera persona desarrollado por Infinity Ward.",
         price: 69.99,
-        imageUrl: "/asset/call.png",
+        imageUrl: "/asset/call.WebP",
         screenShots: [
           "https://via.placeholder.com/800x450/FF4500/FFFFFF?text=Call+of+Duty+Screenshot+1",
           "https://via.placeholder.com/800x450/DC143C/FFFFFF?text=Call+of+Duty+Screenshot+2",
@@ -237,7 +237,7 @@ export class GameService {
         title: "Horizon Forbidden West",
         description: "Horizon Forbidden West continúa la historia de Aloy, una cazadora que viaja a una nueva frontera.",
         price: 49.99,
-        imageUrl: "/asset/horizon.png",
+        imageUrl: "/asset/horizon.WebP",
         screenShots: [
           "https://via.placeholder.com/800x450/4682B4/FFFFFF?text=Horizon+Screenshot+1",
           "https://via.placeholder.com/800x450/1E90FF/FFFFFF?text=Horizon+Screenshot+2",
