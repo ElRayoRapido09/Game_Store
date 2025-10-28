@@ -12,7 +12,13 @@ import { CartService } from "../services/cart.service"
     <div class="game-card">
       <div class="game-image">
         <a [routerLink]="['/games', game.id]">
-          <img [src]="game.imageUrl" [alt]="game.title">
+          <img 
+            [src]="game.imageUrl" 
+            [alt]="game.title"
+            loading="lazy"
+            decoding="async"
+            [width]="300"
+            [height]="180">
           <div class="game-overlay">
             <span class="view-details">Ver detalles</span>
           </div>

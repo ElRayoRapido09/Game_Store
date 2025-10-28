@@ -29,7 +29,10 @@ import { Game } from "../models/game.model"
             <img *ngIf="!showTrailer"
                  [src]="currentImage" 
                  [alt]="game.title" 
-                 class="game-image">
+                 class="game-image"
+                 loading="eager"
+                 fetchpriority="high"
+                 decoding="async">
           </div>
           
           <div class="gallery-container">
@@ -56,7 +59,11 @@ import { Game } from "../models/game.model"
                    role="button"
                    [attr.aria-label]="'Ver captura de pantalla ' + (i + 1)"
               >
-                <img [src]="item" [alt]="game.title + ' screenshot ' + (i + 1)">
+                <img 
+                  [src]="item" 
+                  [alt]="game.title + ' screenshot ' + (i + 1)"
+                  loading="lazy"
+                  decoding="async">
               </div>
             </div>
           </div>
@@ -175,7 +182,13 @@ import { Game } from "../models/game.model"
         <div class="related-games-grid">
           <div class="related-game-card" *ngFor="let relatedGame of relatedGames">
             <a [routerLink]="['/games', relatedGame.id]" class="related-game-image">
-              <img [src]="relatedGame.imageUrl" [alt]="relatedGame.title">
+              <img 
+                [src]="relatedGame.imageUrl" 
+                [alt]="relatedGame.title"
+                loading="lazy"
+                decoding="async"
+                width="200"
+                height="120">
             </a>
             <div class="related-game-info">
               <h3><a [routerLink]="['/games', relatedGame.id]">{{ relatedGame.title }}</a></h3>
