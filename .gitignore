@@ -45,3 +45,4 @@ Thumbs.db
 *.pyc
 __pycache__/
 db.sqlite3
+backend/Game_Store/__pycache__/*
