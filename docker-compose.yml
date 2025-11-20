@@ -1,0 +1,54 @@
+services:
+  backend:
+    image: python:3.9
+    ports:
+      - "8000:8000"
+    working_dir: /app
+    command: bash -c "pip install --upgrade pip && pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      mysql_db:
+        condition:
+          service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '0.5'
+          memory: 2G
+    networks:
+      - app-network
+  mysql_db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: lowcalories
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+    networks:
+    - app-network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

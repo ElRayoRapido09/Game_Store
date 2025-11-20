@@ -4,7 +4,7 @@ import { Router, RouterLink } from "@angular/router"
 import { FormsModule } from "@angular/forms"
 import { CartService } from "../services/cart.service"
 import type { Cart } from "../models/cart.model"
-import { CheckoutReceiptComponent } from './checkout-receipt.component';
+import { CheckoutReceiptComponent } from './checkout/checkout-receipt.component';
 import { jsPDF } from 'jspdf';
 import { AuthService } from '../services/auth.service';
 
